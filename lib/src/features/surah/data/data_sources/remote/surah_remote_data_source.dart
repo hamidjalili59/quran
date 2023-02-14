@@ -1,0 +1,27 @@
+import 'package:api_service/api_service.dart';
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+
+abstract class SurahRemoteDataSource {
+  Future<Either<DioError, Response<Map<String, dynamic>>>> getDataFromServer(
+      {required int surahNumber});
+}
+
+class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
+  SurahRemoteDataSourceImpl(this.apiService);
+  final ApiService apiService;
+  @override
+  Future<Either<DioError, Response<Map<String, dynamic>>>> getDataFromServer(
+      {required int surahNumber}) {
+    return apiService.getMethod(
+      'https://api.alquran.cloud/v1/surah/${surahNumber + 1}/ar',
+      option: const ApiServiceOption(
+        header: ApiServiceHeader.basic(
+          headers: {
+            'accept': 'application/json',
+          },
+        ),
+      ),
+    );
+  }
+}
