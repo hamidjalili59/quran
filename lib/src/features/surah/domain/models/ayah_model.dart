@@ -24,6 +24,8 @@ class Ayah with _$Ayah {
     @HiveField(3) int? juz,
     @HiveField(4) int? manzil,
     @HiveField(5) int? page,
+    @HiveField(6) bool? sajda,
+    @HiveField(7) String? audio,
   }) = _Ayah;
 
   ///das

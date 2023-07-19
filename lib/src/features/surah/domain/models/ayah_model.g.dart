@@ -16,12 +16,38 @@ class AyahAdapter extends TypeAdapter<Ayah> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Ayah();
+    return Ayah(
+      number: fields[0] as int?,
+      text: fields[1] as String?,
+      numberInAyah: fields[2] as int?,
+      juz: fields[3] as int?,
+      manzil: fields[4] as int?,
+      page: fields[5] as int?,
+      sajda: fields[6] as bool?,
+      audio: fields[7] as String?,
+    );
   }
 
   @override
   void write(BinaryWriter writer, Ayah obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(8)
+      ..writeByte(0)
+      ..write(obj.number)
+      ..writeByte(1)
+      ..write(obj.text)
+      ..writeByte(2)
+      ..write(obj.numberInAyah)
+      ..writeByte(3)
+      ..write(obj.juz)
+      ..writeByte(4)
+      ..write(obj.manzil)
+      ..writeByte(5)
+      ..write(obj.page)
+      ..writeByte(6)
+      ..write(obj.sajda)
+      ..writeByte(7)
+      ..write(obj.audio);
   }
 
   @override
@@ -46,6 +72,8 @@ _$_Ayah _$$_AyahFromJson(Map<String, dynamic> json) => _$_Ayah(
       juz: json['juz'] as int?,
       manzil: json['manzil'] as int?,
       page: json['page'] as int?,
+      sajda: json['sajda'] as bool?,
+      audio: json['audio'] as String?,
     );
 
 Map<String, dynamic> _$$_AyahToJson(_$_Ayah instance) => <String, dynamic>{
@@ -55,4 +83,6 @@ Map<String, dynamic> _$$_AyahToJson(_$_Ayah instance) => <String, dynamic>{
       'juz': instance.juz,
       'manzil': instance.manzil,
       'page': instance.page,
+      'sajda': instance.sajda,
+      'audio': instance.audio,
     };

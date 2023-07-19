@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'surah_bloc.dart';
 
@@ -19,43 +19,59 @@ mixin _$SurahEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int surahNumber) getSurah,
+    required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
-    required TResult Function(int ayahNumber) changeAyah,
+    required TResult Function() checkSurahDataIsAvailable,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        changeAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int surahNumber)? getSurah,
+    TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult? Function(int ayahNumber)? changeAyah,
+    TResult? Function()? checkSurahDataIsAvailable,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int surahNumber)? getSurah,
+    TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult Function(int ayahNumber)? changeAyah,
+    TResult Function()? checkSurahDataIsAvailable,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSurah value) getSurah,
+    required TResult Function(_GetSurahTranslate value) getSurahTranslate,
     required TResult Function(_CacheSurahData value) cacheSurahData,
+    required TResult Function(_CheckSurahDataIsAvailable value)
+        checkSurahDataIsAvailable,
     required TResult Function(_ChangeAyah value) changeAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSurah value)? getSurah,
+    TResult? Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult? Function(_CacheSurahData value)? cacheSurahData,
+    TResult? Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult? Function(_ChangeAyah value)? changeAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSurah value)? getSurah,
+    TResult Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult Function(_CacheSurahData value)? cacheSurahData,
+    TResult Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult Function(_ChangeAyah value)? changeAyah,
     required TResult orElse(),
   }) =>
@@ -146,8 +162,11 @@ class _$_GetSurah implements _GetSurah {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int surahNumber) getSurah,
+    required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
-    required TResult Function(int ayahNumber) changeAyah,
+    required TResult Function() checkSurahDataIsAvailable,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        changeAyah,
   }) {
     return getSurah(surahNumber);
   }
@@ -156,8 +175,10 @@ class _$_GetSurah implements _GetSurah {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int surahNumber)? getSurah,
+    TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult? Function(int ayahNumber)? changeAyah,
+    TResult? Function()? checkSurahDataIsAvailable,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
   }) {
     return getSurah?.call(surahNumber);
   }
@@ -166,8 +187,10 @@ class _$_GetSurah implements _GetSurah {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int surahNumber)? getSurah,
+    TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult Function(int ayahNumber)? changeAyah,
+    TResult Function()? checkSurahDataIsAvailable,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (getSurah != null) {
@@ -180,7 +203,10 @@ class _$_GetSurah implements _GetSurah {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSurah value) getSurah,
+    required TResult Function(_GetSurahTranslate value) getSurahTranslate,
     required TResult Function(_CacheSurahData value) cacheSurahData,
+    required TResult Function(_CheckSurahDataIsAvailable value)
+        checkSurahDataIsAvailable,
     required TResult Function(_ChangeAyah value) changeAyah,
   }) {
     return getSurah(this);
@@ -190,7 +216,10 @@ class _$_GetSurah implements _GetSurah {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSurah value)? getSurah,
+    TResult? Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult? Function(_CacheSurahData value)? cacheSurahData,
+    TResult? Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult? Function(_ChangeAyah value)? changeAyah,
   }) {
     return getSurah?.call(this);
@@ -200,7 +229,10 @@ class _$_GetSurah implements _GetSurah {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSurah value)? getSurah,
+    TResult Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult Function(_CacheSurahData value)? cacheSurahData,
+    TResult Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult Function(_ChangeAyah value)? changeAyah,
     required TResult orElse(),
   }) {
@@ -217,6 +249,164 @@ abstract class _GetSurah implements SurahEvent {
   int get surahNumber;
   @JsonKey(ignore: true)
   _$$_GetSurahCopyWith<_$_GetSurah> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetSurahTranslateCopyWith<$Res> {
+  factory _$$_GetSurahTranslateCopyWith(_$_GetSurahTranslate value,
+          $Res Function(_$_GetSurahTranslate) then) =
+      __$$_GetSurahTranslateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int surahNumber});
+}
+
+/// @nodoc
+class __$$_GetSurahTranslateCopyWithImpl<$Res>
+    extends _$SurahEventCopyWithImpl<$Res, _$_GetSurahTranslate>
+    implements _$$_GetSurahTranslateCopyWith<$Res> {
+  __$$_GetSurahTranslateCopyWithImpl(
+      _$_GetSurahTranslate _value, $Res Function(_$_GetSurahTranslate) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? surahNumber = null,
+  }) {
+    return _then(_$_GetSurahTranslate(
+      null == surahNumber
+          ? _value.surahNumber
+          : surahNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetSurahTranslate implements _GetSurahTranslate {
+  const _$_GetSurahTranslate(this.surahNumber);
+
+  @override
+  final int surahNumber;
+
+  @override
+  String toString() {
+    return 'SurahEvent.getSurahTranslate(surahNumber: $surahNumber)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetSurahTranslate &&
+            (identical(other.surahNumber, surahNumber) ||
+                other.surahNumber == surahNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, surahNumber);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetSurahTranslateCopyWith<_$_GetSurahTranslate> get copyWith =>
+      __$$_GetSurahTranslateCopyWithImpl<_$_GetSurahTranslate>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int surahNumber) getSurah,
+    required TResult Function(int surahNumber) getSurahTranslate,
+    required TResult Function(int surahNumber, Surah surah) cacheSurahData,
+    required TResult Function() checkSurahDataIsAvailable,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        changeAyah,
+  }) {
+    return getSurahTranslate(surahNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int surahNumber)? getSurah,
+    TResult? Function(int surahNumber)? getSurahTranslate,
+    TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
+    TResult? Function()? checkSurahDataIsAvailable,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+  }) {
+    return getSurahTranslate?.call(surahNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int surahNumber)? getSurah,
+    TResult Function(int surahNumber)? getSurahTranslate,
+    TResult Function(int surahNumber, Surah surah)? cacheSurahData,
+    TResult Function()? checkSurahDataIsAvailable,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    required TResult orElse(),
+  }) {
+    if (getSurahTranslate != null) {
+      return getSurahTranslate(surahNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSurah value) getSurah,
+    required TResult Function(_GetSurahTranslate value) getSurahTranslate,
+    required TResult Function(_CacheSurahData value) cacheSurahData,
+    required TResult Function(_CheckSurahDataIsAvailable value)
+        checkSurahDataIsAvailable,
+    required TResult Function(_ChangeAyah value) changeAyah,
+  }) {
+    return getSurahTranslate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSurah value)? getSurah,
+    TResult? Function(_GetSurahTranslate value)? getSurahTranslate,
+    TResult? Function(_CacheSurahData value)? cacheSurahData,
+    TResult? Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
+    TResult? Function(_ChangeAyah value)? changeAyah,
+  }) {
+    return getSurahTranslate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSurah value)? getSurah,
+    TResult Function(_GetSurahTranslate value)? getSurahTranslate,
+    TResult Function(_CacheSurahData value)? cacheSurahData,
+    TResult Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
+    TResult Function(_ChangeAyah value)? changeAyah,
+    required TResult orElse(),
+  }) {
+    if (getSurahTranslate != null) {
+      return getSurahTranslate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetSurahTranslate implements SurahEvent {
+  const factory _GetSurahTranslate(final int surahNumber) =
+      _$_GetSurahTranslate;
+
+  int get surahNumber;
+  @JsonKey(ignore: true)
+  _$$_GetSurahTranslateCopyWith<_$_GetSurahTranslate> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -304,8 +494,11 @@ class _$_CacheSurahData implements _CacheSurahData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int surahNumber) getSurah,
+    required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
-    required TResult Function(int ayahNumber) changeAyah,
+    required TResult Function() checkSurahDataIsAvailable,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        changeAyah,
   }) {
     return cacheSurahData(surahNumber, surah);
   }
@@ -314,8 +507,10 @@ class _$_CacheSurahData implements _CacheSurahData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int surahNumber)? getSurah,
+    TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult? Function(int ayahNumber)? changeAyah,
+    TResult? Function()? checkSurahDataIsAvailable,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
   }) {
     return cacheSurahData?.call(surahNumber, surah);
   }
@@ -324,8 +519,10 @@ class _$_CacheSurahData implements _CacheSurahData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int surahNumber)? getSurah,
+    TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult Function(int ayahNumber)? changeAyah,
+    TResult Function()? checkSurahDataIsAvailable,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (cacheSurahData != null) {
@@ -338,7 +535,10 @@ class _$_CacheSurahData implements _CacheSurahData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSurah value) getSurah,
+    required TResult Function(_GetSurahTranslate value) getSurahTranslate,
     required TResult Function(_CacheSurahData value) cacheSurahData,
+    required TResult Function(_CheckSurahDataIsAvailable value)
+        checkSurahDataIsAvailable,
     required TResult Function(_ChangeAyah value) changeAyah,
   }) {
     return cacheSurahData(this);
@@ -348,7 +548,10 @@ class _$_CacheSurahData implements _CacheSurahData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSurah value)? getSurah,
+    TResult? Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult? Function(_CacheSurahData value)? cacheSurahData,
+    TResult? Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult? Function(_ChangeAyah value)? changeAyah,
   }) {
     return cacheSurahData?.call(this);
@@ -358,7 +561,10 @@ class _$_CacheSurahData implements _CacheSurahData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSurah value)? getSurah,
+    TResult Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult Function(_CacheSurahData value)? cacheSurahData,
+    TResult Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult Function(_ChangeAyah value)? changeAyah,
     required TResult orElse(),
   }) {
@@ -381,12 +587,142 @@ abstract class _CacheSurahData implements SurahEvent {
 }
 
 /// @nodoc
+abstract class _$$_CheckSurahDataIsAvailableCopyWith<$Res> {
+  factory _$$_CheckSurahDataIsAvailableCopyWith(
+          _$_CheckSurahDataIsAvailable value,
+          $Res Function(_$_CheckSurahDataIsAvailable) then) =
+      __$$_CheckSurahDataIsAvailableCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CheckSurahDataIsAvailableCopyWithImpl<$Res>
+    extends _$SurahEventCopyWithImpl<$Res, _$_CheckSurahDataIsAvailable>
+    implements _$$_CheckSurahDataIsAvailableCopyWith<$Res> {
+  __$$_CheckSurahDataIsAvailableCopyWithImpl(
+      _$_CheckSurahDataIsAvailable _value,
+      $Res Function(_$_CheckSurahDataIsAvailable) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CheckSurahDataIsAvailable implements _CheckSurahDataIsAvailable {
+  const _$_CheckSurahDataIsAvailable();
+
+  @override
+  String toString() {
+    return 'SurahEvent.checkSurahDataIsAvailable()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheckSurahDataIsAvailable);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int surahNumber) getSurah,
+    required TResult Function(int surahNumber) getSurahTranslate,
+    required TResult Function(int surahNumber, Surah surah) cacheSurahData,
+    required TResult Function() checkSurahDataIsAvailable,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        changeAyah,
+  }) {
+    return checkSurahDataIsAvailable();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int surahNumber)? getSurah,
+    TResult? Function(int surahNumber)? getSurahTranslate,
+    TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
+    TResult? Function()? checkSurahDataIsAvailable,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+  }) {
+    return checkSurahDataIsAvailable?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int surahNumber)? getSurah,
+    TResult Function(int surahNumber)? getSurahTranslate,
+    TResult Function(int surahNumber, Surah surah)? cacheSurahData,
+    TResult Function()? checkSurahDataIsAvailable,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    required TResult orElse(),
+  }) {
+    if (checkSurahDataIsAvailable != null) {
+      return checkSurahDataIsAvailable();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSurah value) getSurah,
+    required TResult Function(_GetSurahTranslate value) getSurahTranslate,
+    required TResult Function(_CacheSurahData value) cacheSurahData,
+    required TResult Function(_CheckSurahDataIsAvailable value)
+        checkSurahDataIsAvailable,
+    required TResult Function(_ChangeAyah value) changeAyah,
+  }) {
+    return checkSurahDataIsAvailable(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSurah value)? getSurah,
+    TResult? Function(_GetSurahTranslate value)? getSurahTranslate,
+    TResult? Function(_CacheSurahData value)? cacheSurahData,
+    TResult? Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
+    TResult? Function(_ChangeAyah value)? changeAyah,
+  }) {
+    return checkSurahDataIsAvailable?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSurah value)? getSurah,
+    TResult Function(_GetSurahTranslate value)? getSurahTranslate,
+    TResult Function(_CacheSurahData value)? cacheSurahData,
+    TResult Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
+    TResult Function(_ChangeAyah value)? changeAyah,
+    required TResult orElse(),
+  }) {
+    if (checkSurahDataIsAvailable != null) {
+      return checkSurahDataIsAvailable(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckSurahDataIsAvailable implements SurahEvent {
+  const factory _CheckSurahDataIsAvailable() = _$_CheckSurahDataIsAvailable;
+}
+
+/// @nodoc
 abstract class _$$_ChangeAyahCopyWith<$Res> {
   factory _$$_ChangeAyahCopyWith(
           _$_ChangeAyah value, $Res Function(_$_ChangeAyah) then) =
       __$$_ChangeAyahCopyWithImpl<$Res>;
   @useResult
-  $Res call({int ayahNumber});
+  $Res call({int ayahNumber, Surah surah, Surah translate});
+
+  $SurahCopyWith<$Res> get surah;
+  $SurahCopyWith<$Res> get translate;
 }
 
 /// @nodoc
@@ -401,27 +737,57 @@ class __$$_ChangeAyahCopyWithImpl<$Res>
   @override
   $Res call({
     Object? ayahNumber = null,
+    Object? surah = null,
+    Object? translate = null,
   }) {
     return _then(_$_ChangeAyah(
       null == ayahNumber
           ? _value.ayahNumber
           : ayahNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      null == surah
+          ? _value.surah
+          : surah // ignore: cast_nullable_to_non_nullable
+              as Surah,
+      null == translate
+          ? _value.translate
+          : translate // ignore: cast_nullable_to_non_nullable
+              as Surah,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SurahCopyWith<$Res> get surah {
+    return $SurahCopyWith<$Res>(_value.surah, (value) {
+      return _then(_value.copyWith(surah: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SurahCopyWith<$Res> get translate {
+    return $SurahCopyWith<$Res>(_value.translate, (value) {
+      return _then(_value.copyWith(translate: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_ChangeAyah implements _ChangeAyah {
-  const _$_ChangeAyah(this.ayahNumber);
+  const _$_ChangeAyah(this.ayahNumber, this.surah, this.translate);
 
   @override
   final int ayahNumber;
+  @override
+  final Surah surah;
+  @override
+  final Surah translate;
 
   @override
   String toString() {
-    return 'SurahEvent.changeAyah(ayahNumber: $ayahNumber)';
+    return 'SurahEvent.changeAyah(ayahNumber: $ayahNumber, surah: $surah, translate: $translate)';
   }
 
   @override
@@ -430,11 +796,14 @@ class _$_ChangeAyah implements _ChangeAyah {
         (other.runtimeType == runtimeType &&
             other is _$_ChangeAyah &&
             (identical(other.ayahNumber, ayahNumber) ||
-                other.ayahNumber == ayahNumber));
+                other.ayahNumber == ayahNumber) &&
+            (identical(other.surah, surah) || other.surah == surah) &&
+            (identical(other.translate, translate) ||
+                other.translate == translate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, ayahNumber);
+  int get hashCode => Object.hash(runtimeType, ayahNumber, surah, translate);
 
   @JsonKey(ignore: true)
   @override
@@ -446,32 +815,39 @@ class _$_ChangeAyah implements _ChangeAyah {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int surahNumber) getSurah,
+    required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
-    required TResult Function(int ayahNumber) changeAyah,
+    required TResult Function() checkSurahDataIsAvailable,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        changeAyah,
   }) {
-    return changeAyah(ayahNumber);
+    return changeAyah(ayahNumber, surah, translate);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int surahNumber)? getSurah,
+    TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult? Function(int ayahNumber)? changeAyah,
+    TResult? Function()? checkSurahDataIsAvailable,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
   }) {
-    return changeAyah?.call(ayahNumber);
+    return changeAyah?.call(ayahNumber, surah, translate);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int surahNumber)? getSurah,
+    TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
-    TResult Function(int ayahNumber)? changeAyah,
+    TResult Function()? checkSurahDataIsAvailable,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (changeAyah != null) {
-      return changeAyah(ayahNumber);
+      return changeAyah(ayahNumber, surah, translate);
     }
     return orElse();
   }
@@ -480,7 +856,10 @@ class _$_ChangeAyah implements _ChangeAyah {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSurah value) getSurah,
+    required TResult Function(_GetSurahTranslate value) getSurahTranslate,
     required TResult Function(_CacheSurahData value) cacheSurahData,
+    required TResult Function(_CheckSurahDataIsAvailable value)
+        checkSurahDataIsAvailable,
     required TResult Function(_ChangeAyah value) changeAyah,
   }) {
     return changeAyah(this);
@@ -490,7 +869,10 @@ class _$_ChangeAyah implements _ChangeAyah {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSurah value)? getSurah,
+    TResult? Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult? Function(_CacheSurahData value)? cacheSurahData,
+    TResult? Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult? Function(_ChangeAyah value)? changeAyah,
   }) {
     return changeAyah?.call(this);
@@ -500,7 +882,10 @@ class _$_ChangeAyah implements _ChangeAyah {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSurah value)? getSurah,
+    TResult Function(_GetSurahTranslate value)? getSurahTranslate,
     TResult Function(_CacheSurahData value)? cacheSurahData,
+    TResult Function(_CheckSurahDataIsAvailable value)?
+        checkSurahDataIsAvailable,
     TResult Function(_ChangeAyah value)? changeAyah,
     required TResult orElse(),
   }) {
@@ -512,9 +897,13 @@ class _$_ChangeAyah implements _ChangeAyah {
 }
 
 abstract class _ChangeAyah implements SurahEvent {
-  const factory _ChangeAyah(final int ayahNumber) = _$_ChangeAyah;
+  const factory _ChangeAyah(
+          final int ayahNumber, final Surah surah, final Surah translate) =
+      _$_ChangeAyah;
 
   int get ayahNumber;
+  Surah get surah;
+  Surah get translate;
   @JsonKey(ignore: true)
   _$$_ChangeAyahCopyWith<_$_ChangeAyah> get copyWith =>
       throw _privateConstructorUsedError;
@@ -525,24 +914,27 @@ mixin _$SurahState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading) idle,
-    required TResult Function(Surah? surah) getSurahSuccess,
-    required TResult Function(int currentAyah, Surah? surah) ayahIndex,
+    required TResult Function(Surah? surah, Surah? translate) getSurahSuccess,
+    required TResult Function(int currentAyah, Surah? surah, Surah? translate)
+        ayahIndex,
     required TResult Function(SurahFailure? failure, String message) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isLoading)? idle,
-    TResult? Function(Surah? surah)? getSurahSuccess,
-    TResult? Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult? Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult? Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult? Function(SurahFailure? failure, String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading)? idle,
-    TResult Function(Surah? surah)? getSurahSuccess,
-    TResult Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult Function(SurahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) =>
@@ -657,8 +1049,9 @@ class _$_Idle implements _Idle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading) idle,
-    required TResult Function(Surah? surah) getSurahSuccess,
-    required TResult Function(int currentAyah, Surah? surah) ayahIndex,
+    required TResult Function(Surah? surah, Surah? translate) getSurahSuccess,
+    required TResult Function(int currentAyah, Surah? surah, Surah? translate)
+        ayahIndex,
     required TResult Function(SurahFailure? failure, String message) failure,
   }) {
     return idle(isLoading);
@@ -668,8 +1061,9 @@ class _$_Idle implements _Idle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isLoading)? idle,
-    TResult? Function(Surah? surah)? getSurahSuccess,
-    TResult? Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult? Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult? Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult? Function(SurahFailure? failure, String message)? failure,
   }) {
     return idle?.call(isLoading);
@@ -679,8 +1073,9 @@ class _$_Idle implements _Idle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading)? idle,
-    TResult Function(Surah? surah)? getSurahSuccess,
-    TResult Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult Function(SurahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
@@ -742,9 +1137,10 @@ abstract class _$$_GetSurahSuccessCopyWith<$Res> {
           _$_GetSurahSuccess value, $Res Function(_$_GetSurahSuccess) then) =
       __$$_GetSurahSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({Surah? surah});
+  $Res call({Surah? surah, Surah? translate});
 
   $SurahCopyWith<$Res>? get surah;
+  $SurahCopyWith<$Res>? get translate;
 }
 
 /// @nodoc
@@ -759,11 +1155,16 @@ class __$$_GetSurahSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? surah = freezed,
+    Object? translate = freezed,
   }) {
     return _then(_$_GetSurahSuccess(
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
+              as Surah?,
+      translate: freezed == translate
+          ? _value.translate
+          : translate // ignore: cast_nullable_to_non_nullable
               as Surah?,
     ));
   }
@@ -779,19 +1180,33 @@ class __$$_GetSurahSuccessCopyWithImpl<$Res>
       return _then(_value.copyWith(surah: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SurahCopyWith<$Res>? get translate {
+    if (_value.translate == null) {
+      return null;
+    }
+
+    return $SurahCopyWith<$Res>(_value.translate!, (value) {
+      return _then(_value.copyWith(translate: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_GetSurahSuccess implements _GetSurahSuccess {
-  const _$_GetSurahSuccess({this.surah});
+  const _$_GetSurahSuccess({this.surah, this.translate});
 
   @override
   final Surah? surah;
+  @override
+  final Surah? translate;
 
   @override
   String toString() {
-    return 'SurahState.getSurahSuccess(surah: $surah)';
+    return 'SurahState.getSurahSuccess(surah: $surah, translate: $translate)';
   }
 
   @override
@@ -799,11 +1214,13 @@ class _$_GetSurahSuccess implements _GetSurahSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GetSurahSuccess &&
-            (identical(other.surah, surah) || other.surah == surah));
+            (identical(other.surah, surah) || other.surah == surah) &&
+            (identical(other.translate, translate) ||
+                other.translate == translate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, surah);
+  int get hashCode => Object.hash(runtimeType, surah, translate);
 
   @JsonKey(ignore: true)
   @override
@@ -815,35 +1232,38 @@ class _$_GetSurahSuccess implements _GetSurahSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading) idle,
-    required TResult Function(Surah? surah) getSurahSuccess,
-    required TResult Function(int currentAyah, Surah? surah) ayahIndex,
+    required TResult Function(Surah? surah, Surah? translate) getSurahSuccess,
+    required TResult Function(int currentAyah, Surah? surah, Surah? translate)
+        ayahIndex,
     required TResult Function(SurahFailure? failure, String message) failure,
   }) {
-    return getSurahSuccess(surah);
+    return getSurahSuccess(surah, translate);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isLoading)? idle,
-    TResult? Function(Surah? surah)? getSurahSuccess,
-    TResult? Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult? Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult? Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult? Function(SurahFailure? failure, String message)? failure,
   }) {
-    return getSurahSuccess?.call(surah);
+    return getSurahSuccess?.call(surah, translate);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading)? idle,
-    TResult Function(Surah? surah)? getSurahSuccess,
-    TResult Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult Function(SurahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
     if (getSurahSuccess != null) {
-      return getSurahSuccess(surah);
+      return getSurahSuccess(surah, translate);
     }
     return orElse();
   }
@@ -887,9 +1307,11 @@ class _$_GetSurahSuccess implements _GetSurahSuccess {
 }
 
 abstract class _GetSurahSuccess implements SurahState {
-  const factory _GetSurahSuccess({final Surah? surah}) = _$_GetSurahSuccess;
+  const factory _GetSurahSuccess({final Surah? surah, final Surah? translate}) =
+      _$_GetSurahSuccess;
 
   Surah? get surah;
+  Surah? get translate;
   @JsonKey(ignore: true)
   _$$_GetSurahSuccessCopyWith<_$_GetSurahSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -901,9 +1323,10 @@ abstract class _$$_AyahIndexCopyWith<$Res> {
           _$_AyahIndex value, $Res Function(_$_AyahIndex) then) =
       __$$_AyahIndexCopyWithImpl<$Res>;
   @useResult
-  $Res call({int currentAyah, Surah? surah});
+  $Res call({int currentAyah, Surah? surah, Surah? translate});
 
   $SurahCopyWith<$Res>? get surah;
+  $SurahCopyWith<$Res>? get translate;
 }
 
 /// @nodoc
@@ -919,6 +1342,7 @@ class __$$_AyahIndexCopyWithImpl<$Res>
   $Res call({
     Object? currentAyah = null,
     Object? surah = freezed,
+    Object? translate = freezed,
   }) {
     return _then(_$_AyahIndex(
       currentAyah: null == currentAyah
@@ -928,6 +1352,10 @@ class __$$_AyahIndexCopyWithImpl<$Res>
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
+              as Surah?,
+      translate: freezed == translate
+          ? _value.translate
+          : translate // ignore: cast_nullable_to_non_nullable
               as Surah?,
     ));
   }
@@ -943,22 +1371,36 @@ class __$$_AyahIndexCopyWithImpl<$Res>
       return _then(_value.copyWith(surah: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SurahCopyWith<$Res>? get translate {
+    if (_value.translate == null) {
+      return null;
+    }
+
+    return $SurahCopyWith<$Res>(_value.translate!, (value) {
+      return _then(_value.copyWith(translate: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_AyahIndex implements _AyahIndex {
-  const _$_AyahIndex({this.currentAyah = 0, this.surah});
+  const _$_AyahIndex({this.currentAyah = 0, this.surah, this.translate});
 
   @override
   @JsonKey()
   final int currentAyah;
   @override
   final Surah? surah;
+  @override
+  final Surah? translate;
 
   @override
   String toString() {
-    return 'SurahState.ayahIndex(currentAyah: $currentAyah, surah: $surah)';
+    return 'SurahState.ayahIndex(currentAyah: $currentAyah, surah: $surah, translate: $translate)';
   }
 
   @override
@@ -968,11 +1410,13 @@ class _$_AyahIndex implements _AyahIndex {
             other is _$_AyahIndex &&
             (identical(other.currentAyah, currentAyah) ||
                 other.currentAyah == currentAyah) &&
-            (identical(other.surah, surah) || other.surah == surah));
+            (identical(other.surah, surah) || other.surah == surah) &&
+            (identical(other.translate, translate) ||
+                other.translate == translate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentAyah, surah);
+  int get hashCode => Object.hash(runtimeType, currentAyah, surah, translate);
 
   @JsonKey(ignore: true)
   @override
@@ -984,35 +1428,38 @@ class _$_AyahIndex implements _AyahIndex {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading) idle,
-    required TResult Function(Surah? surah) getSurahSuccess,
-    required TResult Function(int currentAyah, Surah? surah) ayahIndex,
+    required TResult Function(Surah? surah, Surah? translate) getSurahSuccess,
+    required TResult Function(int currentAyah, Surah? surah, Surah? translate)
+        ayahIndex,
     required TResult Function(SurahFailure? failure, String message) failure,
   }) {
-    return ayahIndex(currentAyah, surah);
+    return ayahIndex(currentAyah, surah, translate);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isLoading)? idle,
-    TResult? Function(Surah? surah)? getSurahSuccess,
-    TResult? Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult? Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult? Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult? Function(SurahFailure? failure, String message)? failure,
   }) {
-    return ayahIndex?.call(currentAyah, surah);
+    return ayahIndex?.call(currentAyah, surah, translate);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading)? idle,
-    TResult Function(Surah? surah)? getSurahSuccess,
-    TResult Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult Function(SurahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
     if (ayahIndex != null) {
-      return ayahIndex(currentAyah, surah);
+      return ayahIndex(currentAyah, surah, translate);
     }
     return orElse();
   }
@@ -1056,11 +1503,14 @@ class _$_AyahIndex implements _AyahIndex {
 }
 
 abstract class _AyahIndex implements SurahState {
-  const factory _AyahIndex({final int currentAyah, final Surah? surah}) =
-      _$_AyahIndex;
+  const factory _AyahIndex(
+      {final int currentAyah,
+      final Surah? surah,
+      final Surah? translate}) = _$_AyahIndex;
 
   int get currentAyah;
   Surah? get surah;
+  Surah? get translate;
   @JsonKey(ignore: true)
   _$$_AyahIndexCopyWith<_$_AyahIndex> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1153,8 +1603,9 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading) idle,
-    required TResult Function(Surah? surah) getSurahSuccess,
-    required TResult Function(int currentAyah, Surah? surah) ayahIndex,
+    required TResult Function(Surah? surah, Surah? translate) getSurahSuccess,
+    required TResult Function(int currentAyah, Surah? surah, Surah? translate)
+        ayahIndex,
     required TResult Function(SurahFailure? failure, String message) failure,
   }) {
     return failure(this.failure, message);
@@ -1164,8 +1615,9 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool isLoading)? idle,
-    TResult? Function(Surah? surah)? getSurahSuccess,
-    TResult? Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult? Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult? Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult? Function(SurahFailure? failure, String message)? failure,
   }) {
     return failure?.call(this.failure, message);
@@ -1175,8 +1627,9 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading)? idle,
-    TResult Function(Surah? surah)? getSurahSuccess,
-    TResult Function(int currentAyah, Surah? surah)? ayahIndex,
+    TResult Function(Surah? surah, Surah? translate)? getSurahSuccess,
+    TResult Function(int currentAyah, Surah? surah, Surah? translate)?
+        ayahIndex,
     TResult Function(SurahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {

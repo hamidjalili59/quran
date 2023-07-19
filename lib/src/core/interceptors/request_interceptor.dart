@@ -38,7 +38,8 @@ class RequestInterceptor extends Interceptor {
   }
 
   @override
-  Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
+  Future<void> onError(
+      DioException err, ErrorInterceptorHandler handler) async {
     appHelper.logMessage(
       'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}',
     );
@@ -53,7 +54,7 @@ class RequestInterceptor extends Interceptor {
     super.onError(err, handler);
   }
 
-  // Future<Either<DioError, Response<Map<String, dynamic>>>>
+  // Future<Either<DioException, Response<Map<String, dynamic>>>>
   //     _callRefreshTokenApi() async =>
   // await getIt.get<ApiService>().postMethod<Map<String, dynamic>>(
   // const AuthEndpoints.refreshToken().toPath,
@@ -88,7 +89,7 @@ class RequestInterceptor extends Interceptor {
         .then((res) => handler.resolve(res))
         .catchError(
       (e) {
-        if (e is DioError) handler.reject(e);
+        if (e is DioException) handler.reject(e);
       },
     );
   }

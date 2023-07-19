@@ -5,4 +5,4 @@ import 'package:quran/src/injectable/injectable.config.dart';
 final GetIt getIt = GetIt.instance;
 
 @InjectableInit()
-void configureInjection()=> $initGetIt(getIt);
+void configureInjection() => getIt.init();

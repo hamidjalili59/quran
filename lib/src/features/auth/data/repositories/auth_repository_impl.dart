@@ -10,7 +10,6 @@ import 'package:quran/src/features/auth/domain/repositories/auth_repository.dart
 import 'package:quran/src/features/core/models/base_response.dart';
 import 'package:quran/src/injectable/injectable.dart';
 
-
 class AuthRepositoryImpl extends AuthRepository {
   final AuthRemoteDataSource _remoteDS;
   final AuthLocalDataSource _localDS;
@@ -32,17 +31,15 @@ class AuthRepositoryImpl extends AuthRepository {
     });
   }
 
-  @override
-  Future<Either<AuthFailure, void>> cacheAuthData({required String token}) {
-    // TODO: implement cacheAuthData
-    throw UnimplementedError();
-  }
+  // @override
+  // Future<Either<AuthFailure, void>> cacheAuthData({required String token}) {
+  //   throw UnimplementedError();
+  // }
 
-  @override
-  Future<Either<AuthFailure, OtpVerifyResponse>> getCachedAuthData() {
-    // TODO: implement getCachedAuthData
-    throw UnimplementedError();
-  }
+  // @override
+  // Future<Either<AuthFailure, OtpVerifyResponse>> getCachedAuthData() {
+  //   throw UnimplementedError();
+  // }
 
   @override
   Future<Either<AuthFailure, OtpVerifyResponse>> otpVerify(
@@ -63,11 +60,11 @@ class AuthRepositoryImpl extends AuthRepository {
                 value: OtpVerifyResponse(token: otpVerifyResponse.token),
               );
 
-            getIt.get<AuthHeaderSupplier>().setToken(otpVerifyResponse.token);
+              getIt.get<AuthHeaderSupplier>().setToken(otpVerifyResponse.token);
 
-            return right<AuthFailure, OtpVerifyResponse>(
-              otpVerifyResponse,
-            );
+              return right<AuthFailure, OtpVerifyResponse>(
+                otpVerifyResponse,
+              );
             },
           ),
         );

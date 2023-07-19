@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'surah_failure.dart';
 
@@ -20,7 +20,7 @@ mixin _$SurahFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() missingToken,
-    required TResult Function(DioError failure) api,
+    required TResult Function(DioException failure) api,
     required TResult Function() nullParam,
     required TResult Function(DatabaseError failure) database,
   }) =>
@@ -29,7 +29,7 @@ mixin _$SurahFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cancelledByUser,
     TResult? Function()? missingToken,
-    TResult? Function(DioError failure)? api,
+    TResult? Function(DioException failure)? api,
     TResult? Function()? nullParam,
     TResult? Function(DatabaseError failure)? database,
   }) =>
@@ -38,7 +38,7 @@ mixin _$SurahFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? missingToken,
-    TResult Function(DioError failure)? api,
+    TResult Function(DioException failure)? api,
     TResult Function()? nullParam,
     TResult Function(DatabaseError failure)? database,
     required TResult orElse(),
@@ -132,7 +132,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() missingToken,
-    required TResult Function(DioError failure) api,
+    required TResult Function(DioException failure) api,
     required TResult Function() nullParam,
     required TResult Function(DatabaseError failure) database,
   }) {
@@ -144,7 +144,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cancelledByUser,
     TResult? Function()? missingToken,
-    TResult? Function(DioError failure)? api,
+    TResult? Function(DioException failure)? api,
     TResult? Function()? nullParam,
     TResult? Function(DatabaseError failure)? database,
   }) {
@@ -156,7 +156,7 @@ class _$_CancelledByUser implements _CancelledByUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? missingToken,
-    TResult Function(DioError failure)? api,
+    TResult Function(DioException failure)? api,
     TResult Function()? nullParam,
     TResult Function(DatabaseError failure)? database,
     required TResult orElse(),
@@ -252,7 +252,7 @@ class _$_MissingToken implements _MissingToken {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() missingToken,
-    required TResult Function(DioError failure) api,
+    required TResult Function(DioException failure) api,
     required TResult Function() nullParam,
     required TResult Function(DatabaseError failure) database,
   }) {
@@ -264,7 +264,7 @@ class _$_MissingToken implements _MissingToken {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cancelledByUser,
     TResult? Function()? missingToken,
-    TResult? Function(DioError failure)? api,
+    TResult? Function(DioException failure)? api,
     TResult? Function()? nullParam,
     TResult? Function(DatabaseError failure)? database,
   }) {
@@ -276,7 +276,7 @@ class _$_MissingToken implements _MissingToken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? missingToken,
-    TResult Function(DioError failure)? api,
+    TResult Function(DioException failure)? api,
     TResult Function()? nullParam,
     TResult Function(DatabaseError failure)? database,
     required TResult orElse(),
@@ -337,7 +337,7 @@ abstract class _$$_ApiCopyWith<$Res> {
   factory _$$_ApiCopyWith(_$_Api value, $Res Function(_$_Api) then) =
       __$$_ApiCopyWithImpl<$Res>;
   @useResult
-  $Res call({DioError failure});
+  $Res call({DioException failure});
 }
 
 /// @nodoc
@@ -356,7 +356,7 @@ class __$$_ApiCopyWithImpl<$Res>
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
-              as DioError,
+              as DioException,
     ));
   }
 }
@@ -367,7 +367,7 @@ class _$_Api implements _Api {
   const _$_Api(this.failure);
 
   @override
-  final DioError failure;
+  final DioException failure;
 
   @override
   String toString() {
@@ -396,7 +396,7 @@ class _$_Api implements _Api {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() missingToken,
-    required TResult Function(DioError failure) api,
+    required TResult Function(DioException failure) api,
     required TResult Function() nullParam,
     required TResult Function(DatabaseError failure) database,
   }) {
@@ -408,7 +408,7 @@ class _$_Api implements _Api {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cancelledByUser,
     TResult? Function()? missingToken,
-    TResult? Function(DioError failure)? api,
+    TResult? Function(DioException failure)? api,
     TResult? Function()? nullParam,
     TResult? Function(DatabaseError failure)? database,
   }) {
@@ -420,7 +420,7 @@ class _$_Api implements _Api {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? missingToken,
-    TResult Function(DioError failure)? api,
+    TResult Function(DioException failure)? api,
     TResult Function()? nullParam,
     TResult Function(DatabaseError failure)? database,
     required TResult orElse(),
@@ -473,9 +473,9 @@ class _$_Api implements _Api {
 }
 
 abstract class _Api implements SurahFailure {
-  const factory _Api(final DioError failure) = _$_Api;
+  const factory _Api(final DioException failure) = _$_Api;
 
-  DioError get failure;
+  DioException get failure;
   @JsonKey(ignore: true)
   _$$_ApiCopyWith<_$_Api> get copyWith => throw _privateConstructorUsedError;
 }
@@ -520,7 +520,7 @@ class _$_NullParam implements _NullParam {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() missingToken,
-    required TResult Function(DioError failure) api,
+    required TResult Function(DioException failure) api,
     required TResult Function() nullParam,
     required TResult Function(DatabaseError failure) database,
   }) {
@@ -532,7 +532,7 @@ class _$_NullParam implements _NullParam {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cancelledByUser,
     TResult? Function()? missingToken,
-    TResult? Function(DioError failure)? api,
+    TResult? Function(DioException failure)? api,
     TResult? Function()? nullParam,
     TResult? Function(DatabaseError failure)? database,
   }) {
@@ -544,7 +544,7 @@ class _$_NullParam implements _NullParam {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? missingToken,
-    TResult Function(DioError failure)? api,
+    TResult Function(DioException failure)? api,
     TResult Function()? nullParam,
     TResult Function(DatabaseError failure)? database,
     required TResult orElse(),
@@ -666,7 +666,7 @@ class _$_Database implements _Database {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() missingToken,
-    required TResult Function(DioError failure) api,
+    required TResult Function(DioException failure) api,
     required TResult Function() nullParam,
     required TResult Function(DatabaseError failure) database,
   }) {
@@ -678,7 +678,7 @@ class _$_Database implements _Database {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cancelledByUser,
     TResult? Function()? missingToken,
-    TResult? Function(DioError failure)? api,
+    TResult? Function(DioException failure)? api,
     TResult? Function()? nullParam,
     TResult? Function(DatabaseError failure)? database,
   }) {
@@ -690,7 +690,7 @@ class _$_Database implements _Database {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? missingToken,
-    TResult Function(DioError failure)? api,
+    TResult Function(DioException failure)? api,
     TResult Function()? nullParam,
     TResult Function(DatabaseError failure)? database,
     required TResult orElse(),

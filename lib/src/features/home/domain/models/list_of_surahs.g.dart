@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: unused_local_variable, non_constant_identifier_names
-
 part of 'list_of_surahs.dart';
 
 // **************************************************************************
@@ -18,12 +16,18 @@ class ListOfHomeSurahAdapter extends TypeAdapter<ListOfHomeSurah> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ListOfHomeSurah();
+    return ListOfHomeSurah(
+      listSurahs:
+          fields[0] == null ? [] : (fields[0] as List?)?.cast<HomeSurah>(),
+    );
   }
 
   @override
   void write(BinaryWriter writer, ListOfHomeSurah obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.listSurahs);
   }
 
   @override

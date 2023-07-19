@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -21,7 +22,7 @@ part 'home_state.dart';
 part 'home_event.dart';
 part 'home_bloc.freezed.dart';
 
-@injectable
+@lazySingleton
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final CacheHomeSurahDataUseCase _cacheHomeSurahsDataUseCase;
   final GetCachedHomeSurahDataUseCase _getCachedHomeSurahDataUseCase;
@@ -35,6 +36,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<_GetHomeSurahs>(_onGetHomeSurahs);
     on<_OpenOneSurah>(_onOpenOneSurah);
     on<_CheckDataIsAvailable>(_onCheckDataIsAvailable);
+    add(_CheckDataIsAvailable());
   }
 
   @override
@@ -49,7 +51,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) {
     GeneralConstants.surahNumber = event.surahNumber;
-    appRoute.pushNamed('/surah_page');
+    appRoute.pushNamed('/surah');
   }
 
   //
@@ -60,11 +62,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final getCachedSurahsResult = await _getCachedHomeSurahDataUseCase();
       getCachedSurahsResult.fold(
-        (l) {
+        (l) async {
           emit(_Failure(failure: l));
         },
         (r) {
-          emit(_DataIsAvailableInStorage(listSurahs: r));
+          if ((r.listSurahs ?? []).isEmpty) {
+            emit(_Failure());
+          } else {
+            emit(_DataIsAvailableInStorage(listSurahs: r));
+          }
         },
       );
     } catch (e) {
@@ -77,26 +83,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _GetHomeSurahs event,
     Emitter<HomeState> emit,
   ) async {
-    emit(const _Idle(isLoading: true));
-    try {
-      final getSurahsResult = await _getHomeSurahFromServerUseCase();
-      await Future.delayed(const Duration(milliseconds: 150));
-      getSurahsResult.fold(
-        (l) {
-          emit(_Failure(failure: l));
-        },
-        (r) {
-          _cacheHomeSurahsDataUseCase(param: tuple.Tuple1(r));
-          emit(_GetSurahsSuccess(listSurahs: r));
-        },
-      );
-    } catch (e) {
-      FunctionHelper().logErrorDetailMessage(
-        e,
-        libraryName: 'loginError',
-        bodyMessage: 'check your login details',
-      );
-      emit(_Failure(message: e.toString()));
+    final checkInternet = await Dio().get('https://www.google.com');
+    if (checkInternet.statusCode != 200) {
+      emit(_Failure(message: 'No Internet'));
+    } else {
+      emit(const _Idle(isLoading: true));
+      try {
+        final getSurahsResult = await _getHomeSurahFromServerUseCase();
+        await Future.delayed(const Duration(milliseconds: 150));
+        getSurahsResult.fold(
+          (l) {
+            emit(_Failure(failure: l));
+          },
+          (r) {
+            _cacheHomeSurahsDataUseCase(param: tuple.Tuple1(r));
+            emit(_GetSurahsSuccess(listSurahs: r));
+          },
+        );
+      } catch (e) {
+        FunctionHelper().logErrorDetailMessage(
+          e,
+          libraryName: 'loginError',
+          bodyMessage: 'check your login details',
+        );
+        emit(_Failure(message: e.toString()));
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ayah_model.dart';
 
@@ -32,6 +32,10 @@ mixin _$Ayah {
   int? get manzil => throw _privateConstructorUsedError;
   @HiveField(5)
   int? get page => throw _privateConstructorUsedError;
+  @HiveField(6)
+  bool? get sajda => throw _privateConstructorUsedError;
+  @HiveField(7)
+  String? get audio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +53,9 @@ abstract class $AyahCopyWith<$Res> {
       @HiveField(2) int? numberInAyah,
       @HiveField(3) int? juz,
       @HiveField(4) int? manzil,
-      @HiveField(5) int? page});
+      @HiveField(5) int? page,
+      @HiveField(6) bool? sajda,
+      @HiveField(7) String? audio});
 }
 
 /// @nodoc
@@ -71,6 +77,8 @@ class _$AyahCopyWithImpl<$Res, $Val extends Ayah>
     Object? juz = freezed,
     Object? manzil = freezed,
     Object? page = freezed,
+    Object? sajda = freezed,
+    Object? audio = freezed,
   }) {
     return _then(_value.copyWith(
       number: freezed == number
@@ -97,6 +105,14 @@ class _$AyahCopyWithImpl<$Res, $Val extends Ayah>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
+      sajda: freezed == sajda
+          ? _value.sajda
+          : sajda // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      audio: freezed == audio
+          ? _value.audio
+          : audio // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -113,7 +129,9 @@ abstract class _$$_AyahCopyWith<$Res> implements $AyahCopyWith<$Res> {
       @HiveField(2) int? numberInAyah,
       @HiveField(3) int? juz,
       @HiveField(4) int? manzil,
-      @HiveField(5) int? page});
+      @HiveField(5) int? page,
+      @HiveField(6) bool? sajda,
+      @HiveField(7) String? audio});
 }
 
 /// @nodoc
@@ -131,6 +149,8 @@ class __$$_AyahCopyWithImpl<$Res> extends _$AyahCopyWithImpl<$Res, _$_Ayah>
     Object? juz = freezed,
     Object? manzil = freezed,
     Object? page = freezed,
+    Object? sajda = freezed,
+    Object? audio = freezed,
   }) {
     return _then(_$_Ayah(
       number: freezed == number
@@ -157,6 +177,14 @@ class __$$_AyahCopyWithImpl<$Res> extends _$AyahCopyWithImpl<$Res, _$_Ayah>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
+      sajda: freezed == sajda
+          ? _value.sajda
+          : sajda // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      audio: freezed == audio
+          ? _value.audio
+          : audio // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -170,7 +198,9 @@ class _$_Ayah implements _Ayah {
       @HiveField(2) this.numberInAyah,
       @HiveField(3) this.juz,
       @HiveField(4) this.manzil,
-      @HiveField(5) this.page});
+      @HiveField(5) this.page,
+      @HiveField(6) this.sajda,
+      @HiveField(7) this.audio});
 
   factory _$_Ayah.fromJson(Map<String, dynamic> json) => _$$_AyahFromJson(json);
 
@@ -192,10 +222,16 @@ class _$_Ayah implements _Ayah {
   @override
   @HiveField(5)
   final int? page;
+  @override
+  @HiveField(6)
+  final bool? sajda;
+  @override
+  @HiveField(7)
+  final String? audio;
 
   @override
   String toString() {
-    return 'Ayah(number: $number, text: $text, numberInAyah: $numberInAyah, juz: $juz, manzil: $manzil, page: $page)';
+    return 'Ayah(number: $number, text: $text, numberInAyah: $numberInAyah, juz: $juz, manzil: $manzil, page: $page, sajda: $sajda, audio: $audio)';
   }
 
   @override
@@ -209,13 +245,15 @@ class _$_Ayah implements _Ayah {
                 other.numberInAyah == numberInAyah) &&
             (identical(other.juz, juz) || other.juz == juz) &&
             (identical(other.manzil, manzil) || other.manzil == manzil) &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.sajda, sajda) || other.sajda == sajda) &&
+            (identical(other.audio, audio) || other.audio == audio));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, number, text, numberInAyah, juz, manzil, page);
+  int get hashCode => Object.hash(
+      runtimeType, number, text, numberInAyah, juz, manzil, page, sajda, audio);
 
   @JsonKey(ignore: true)
   @override
@@ -238,7 +276,9 @@ abstract class _Ayah implements Ayah {
       @HiveField(2) final int? numberInAyah,
       @HiveField(3) final int? juz,
       @HiveField(4) final int? manzil,
-      @HiveField(5) final int? page}) = _$_Ayah;
+      @HiveField(5) final int? page,
+      @HiveField(6) final bool? sajda,
+      @HiveField(7) final String? audio}) = _$_Ayah;
 
   factory _Ayah.fromJson(Map<String, dynamic> json) = _$_Ayah.fromJson;
 
@@ -260,6 +300,12 @@ abstract class _Ayah implements Ayah {
   @override
   @HiveField(5)
   int? get page;
+  @override
+  @HiveField(6)
+  bool? get sajda;
+  @override
+  @HiveField(7)
+  String? get audio;
   @override
   @JsonKey(ignore: true)
   _$$_AyahCopyWith<_$_Ayah> get copyWith => throw _privateConstructorUsedError;

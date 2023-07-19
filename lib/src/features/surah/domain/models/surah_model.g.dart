@@ -16,12 +16,26 @@ class SurahAdapter extends TypeAdapter<Surah> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Surah();
+    return Surah(
+      number: fields[0] == null ? 0 : fields[0] as int?,
+      name: fields[1] == null ? '' : fields[1] as String?,
+      numberOfAyahs: fields[2] == null ? 0 : fields[2] as int?,
+      ayahs: fields[3] == null ? [] : (fields[3] as List?)?.cast<Ayah>(),
+    );
   }
 
   @override
   void write(BinaryWriter writer, Surah obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.number)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.numberOfAyahs)
+      ..writeByte(3)
+      ..write(obj.ayahs);
   }
 
   @override

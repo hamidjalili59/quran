@@ -12,12 +12,27 @@ class HomeSurahAdapter extends TypeAdapter<HomeSurah> {
 
   @override
   HomeSurah read(BinaryReader reader) {
-    return HomeSurah();
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return HomeSurah(
+      number: fields[0] == null ? 0 : fields[0] as int?,
+      name: fields[1] == null ? '' : fields[1] as String?,
+      numberOfAyahs: fields[2] == null ? 0 : fields[2] as int?,
+    );
   }
 
   @override
   void write(BinaryWriter writer, HomeSurah obj) {
-    writer.writeByte(0);
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.number)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.numberOfAyahs);
   }
 
   @override

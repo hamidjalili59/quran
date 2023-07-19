@@ -14,10 +14,10 @@ abstract class AuthRepository {
     required double phoneNumber,
   });
   //
-  Future<Either<AuthFailure, void>> cacheAuthData({
-    required String token,
-  });
-  //
-  Future<Either<AuthFailure, OtpVerifyResponse>> getCachedAuthData();
+  // Future<Either<AuthFailure, void>> cacheAuthData({
+  //   required String token,
+  // });
+  // //
+  // Future<Either<AuthFailure, OtpVerifyResponse>> getCachedAuthData();
   //
 }

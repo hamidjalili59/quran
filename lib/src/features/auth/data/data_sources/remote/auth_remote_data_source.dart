@@ -3,13 +3,13 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<Either<DioError, Response<Map<String, dynamic>>>> otpHandshake(
+  Future<Either<DioException, Response<Map<String, dynamic>>>> otpHandshake(
       {required double phoneNumber});
 
-  Future<Either<DioError, Response<Map<String, dynamic>>>> getDataFromServer(
-      {required double phoneNumber});
+  Future<Either<DioException, Response<Map<String, dynamic>>>>
+      getDataFromServer({required double phoneNumber});
 
-  Future<Either<DioError, Response<Map<String, dynamic>>>> otpVerify(
+  Future<Either<DioException, Response<Map<String, dynamic>>>> otpVerify(
       {required Map<String, dynamic> params, required double phoneNumber});
 }
 
@@ -18,7 +18,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final ApiService apiService;
 
   @override
-  Future<Either<DioError, Response<Map<String, dynamic>>>> otpHandshake(
+  Future<Either<DioException, Response<Map<String, dynamic>>>> otpHandshake(
           {required double phoneNumber}) =>
       apiService.postMethod<Map<String, dynamic>>('https://www.asatic.ir/',
           option: ApiServiceOption(
@@ -31,7 +31,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           });
 
   @override
-  Future<Either<DioError, Response<Map<String, dynamic>>>> otpVerify(
+  Future<Either<DioException, Response<Map<String, dynamic>>>> otpVerify(
       {required Map<String, dynamic> params, required double phoneNumber}) {
     return apiService.postMethod(
       'https://www.asatic.ir/',
@@ -45,9 +45,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       ),
     );
   }
-  
+
   @override
-  Future<Either<DioError, Response<Map<String, dynamic>>>> getDataFromServer({required double phoneNumber}) {
+  Future<Either<DioException, Response<Map<String, dynamic>>>>
+      getDataFromServer({required double phoneNumber}) {
     return apiService.getMethod(
       'https://www.asatic.ir/',
       option: const ApiServiceOption(

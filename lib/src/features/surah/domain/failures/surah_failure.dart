@@ -8,12 +8,13 @@ import '../../../core/failures/failure.dart';
 part 'surah_failure.freezed.dart';
 
 @freezed
-class SurahFailure extends Failure with _$SurahFailure{
+class SurahFailure extends Failure with _$SurahFailure {
   ///
   const factory SurahFailure.cancelledByUser() = _CancelledByUser;
   const factory SurahFailure.missingToken() = _MissingToken;
+
   ///
-  const factory SurahFailure.api(DioError failure) = _Api;
+  const factory SurahFailure.api(DioException failure) = _Api;
   const factory SurahFailure.nullParam() = _NullParam;
   const factory SurahFailure.database(DatabaseError failure) = _Database;
 }
