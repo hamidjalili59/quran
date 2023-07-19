@@ -24,29 +24,32 @@ class AyahVoiceControllerBloc
 
   FutureOr<void> _onPlayAyah(
       _PlayAyah event, Emitter<AyahVoiceControllerState> emit) async {
-    print('playing ...');
-    final audio = await _getAudioAyahFromServerUseCase.call(
-      param: tuple.Tuple4<int, String, Surah, String>(
-        event.ayahNumber,
-        'abdolbaset',
-        event.surah,
-        event.link,
-      ),
-    );
-    audio.fold(
-      (l) {
-        return null;
-      },
-      (file) async {
-        if (!getIt.isRegistered<AudioPlayer>()) {
-          getIt.registerSingleton<AudioPlayer>(AudioPlayer());
-        }
-        if (await file.exists()) {
-          await getIt.get<AudioPlayer>().setFilePath(file.path);
-          await getIt.get<AudioPlayer>().play();
-          await getIt.get<AudioPlayer>().stop();
-        }
-      },
-    );
+    if (state == AyahVoiceControllerState.idle()) {
+      final audio = await _getAudioAyahFromServerUseCase.call(
+        param: tuple.Tuple4<int, String, Surah, String>(
+          event.ayahNumber,
+          'abdolbaset',
+          event.surah,
+          event.link,
+        ),
+      );
+      audio.fold(
+        (l) {
+          emit(AyahVoiceControllerState.idle());
+        },
+        (file) async {
+          emit(AyahVoiceControllerState.playingAudio());
+          if (!getIt.isRegistered<AudioPlayer>()) {
+            getIt.registerSingleton<AudioPlayer>(AudioPlayer());
+          }
+          if (await file.exists()) {
+            await getIt.get<AudioPlayer>().setFilePath(file.path);
+            await getIt.get<AudioPlayer>().play();
+          }
+        },
+      );
+    } else {
+      return;
+    }
   }
 }

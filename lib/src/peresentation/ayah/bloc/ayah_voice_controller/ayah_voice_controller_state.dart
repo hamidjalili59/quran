@@ -7,6 +7,7 @@ class AyahVoiceControllerState with _$AyahVoiceControllerState {
   const factory AyahVoiceControllerState.dataIsAvailableInStorage() =
       _DataIsAvailableInStorage;
   const factory AyahVoiceControllerState.getAudioSuccess() = _GetAudioSuccess;
+  const factory AyahVoiceControllerState.playingAudio() = _PlayingAudio;
   const factory AyahVoiceControllerState.failure({
     AyahFailure? failure,
     @Default('') String message,

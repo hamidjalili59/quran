@@ -40,7 +40,17 @@ class AyahVoiceWidget extends StatelessWidget {
                       );
                 },
                 child: Icon(
-                  Icons.play_arrow_rounded,
+                  getIt.get<AyahVoiceControllerBloc>().state.maybeWhen(
+                    orElse: () {
+                      return Icons.play_arrow_rounded;
+                    },
+                    getAudioSuccess: () {
+                      return Icons.abc;
+                    },
+                    playingAudio: () {
+                      return Icons.stop_rounded;
+                    },
+                  ),
                   color: Colors.white,
                   size: 46.r,
                 ),

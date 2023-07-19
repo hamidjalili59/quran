@@ -69,12 +69,10 @@ class SurahRepositoryImpl extends SurahRepository {
   @override
   Future<Either<SurahFailure, Surah>> getSurahTranslate(
       {required int surahNumber}) {
-    print(123);
     return _remoteDS.getTranslateDataFromServer(surahNumber: surahNumber).then(
           (value) => value.fold(
             (l) => left<SurahFailure, Surah>(SurahFailure.api(l)),
             (r) {
-              print(2234);
               final surahDataFromServer = Surah.fromJson(
                 BaseResponse.fromJson(r.data ?? {}).data,
               );

@@ -36,19 +36,30 @@ class AyahRepositoryImpl extends AyahRepository {
       {required int ayahNumber,
       required Surah surah,
       required String qari,
-      required String audioLink}) {
-    print('++++++++++++++++++++++++++++++++++++++++++');
-    return _remoteDS.getDataFromServer(audioLink: audioLink).then(
-          (value) => value.fold(
-            (l) {
-              return left<AyahFailure, File>(AyahFailure.api(l));
-            },
-            (r) async {
-              Directory dir = await path.getApplicationDocumentsDirectory();
-              final file = await File(dir.path).writeAsBytes(r.data!);
-              return right<AyahFailure, File>(file);
-            },
-          ),
-        );
+      required String audioLink}) async {
+    Directory dir = await path.getApplicationDocumentsDirectory();
+    if (await File('${dir.path}${surah.number}-$ayahNumber-$qari.mp3')
+        .exists()) {
+      final file =
+          await File('${dir.path}${surah.number}-$ayahNumber-$qari.mp3');
+      return right<AyahFailure, File>(file);
+    } else {
+      return _remoteDS
+          .getDataFromServer(
+              audioLink: audioLink,
+              path: '${dir.path}${surah.number}-$ayahNumber-$qari.mp3')
+          .then(
+            (value) => value.fold(
+              (l) {
+                return left<AyahFailure, File>(AyahFailure.api(l));
+              },
+              (r) async {
+                final file = await File(
+                    '${dir.path}${surah.number}-$ayahNumber-$qari.mp3');
+                return right<AyahFailure, File>(file);
+              },
+            ),
+          );
+    }
   }
 }

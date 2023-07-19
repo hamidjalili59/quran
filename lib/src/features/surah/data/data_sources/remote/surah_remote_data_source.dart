@@ -15,7 +15,6 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   @override
   Future<Either<DioException, Response<Map<String, dynamic>>>>
       getDataFromServer({required int surahNumber}) {
-    print(0);
     return apiService.getMethod(
       'https://api.alquran.cloud/v1/surah/${surahNumber + 1}/ar.abdulbasitmurattal',
       option: const ApiServiceOption(
@@ -31,7 +30,6 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   @override
   Future<Either<DioException, Response<Map<String, dynamic>>>>
       getTranslateDataFromServer({required int surahNumber}) {
-    print('start');
     return apiService.getMethod(
       'https://api.alquran.cloud/v1/surah/${surahNumber + 1}/fa.ayati',
       option: const ApiServiceOption(

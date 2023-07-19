@@ -21,6 +21,7 @@ mixin _$AyahVoiceControllerState {
     required TResult Function(bool isLoading) idle,
     required TResult Function() dataIsAvailableInStorage,
     required TResult Function() getAudioSuccess,
+    required TResult Function() playingAudio,
     required TResult Function(AyahFailure? failure, String message) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$AyahVoiceControllerState {
     TResult? Function(bool isLoading)? idle,
     TResult? Function()? dataIsAvailableInStorage,
     TResult? Function()? getAudioSuccess,
+    TResult? Function()? playingAudio,
     TResult? Function(AyahFailure? failure, String message)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$AyahVoiceControllerState {
     TResult Function(bool isLoading)? idle,
     TResult Function()? dataIsAvailableInStorage,
     TResult Function()? getAudioSuccess,
+    TResult Function()? playingAudio,
     TResult Function(AyahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) =>
@@ -47,6 +50,7 @@ mixin _$AyahVoiceControllerState {
     required TResult Function(_DataIsAvailableInStorage value)
         dataIsAvailableInStorage,
     required TResult Function(_GetAudioSuccess value) getAudioSuccess,
+    required TResult Function(_PlayingAudio value) playingAudio,
     required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +60,7 @@ mixin _$AyahVoiceControllerState {
     TResult? Function(_DataIsAvailableInStorage value)?
         dataIsAvailableInStorage,
     TResult? Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult? Function(_PlayingAudio value)? playingAudio,
     TResult? Function(_Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +69,7 @@ mixin _$AyahVoiceControllerState {
     TResult Function(_Idle value)? idle,
     TResult Function(_DataIsAvailableInStorage value)? dataIsAvailableInStorage,
     TResult Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult Function(_PlayingAudio value)? playingAudio,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) =>
@@ -156,6 +162,7 @@ class _$_Idle implements _Idle {
     required TResult Function(bool isLoading) idle,
     required TResult Function() dataIsAvailableInStorage,
     required TResult Function() getAudioSuccess,
+    required TResult Function() playingAudio,
     required TResult Function(AyahFailure? failure, String message) failure,
   }) {
     return idle(isLoading);
@@ -167,6 +174,7 @@ class _$_Idle implements _Idle {
     TResult? Function(bool isLoading)? idle,
     TResult? Function()? dataIsAvailableInStorage,
     TResult? Function()? getAudioSuccess,
+    TResult? Function()? playingAudio,
     TResult? Function(AyahFailure? failure, String message)? failure,
   }) {
     return idle?.call(isLoading);
@@ -178,6 +186,7 @@ class _$_Idle implements _Idle {
     TResult Function(bool isLoading)? idle,
     TResult Function()? dataIsAvailableInStorage,
     TResult Function()? getAudioSuccess,
+    TResult Function()? playingAudio,
     TResult Function(AyahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
@@ -194,6 +203,7 @@ class _$_Idle implements _Idle {
     required TResult Function(_DataIsAvailableInStorage value)
         dataIsAvailableInStorage,
     required TResult Function(_GetAudioSuccess value) getAudioSuccess,
+    required TResult Function(_PlayingAudio value) playingAudio,
     required TResult Function(_Failure value) failure,
   }) {
     return idle(this);
@@ -206,6 +216,7 @@ class _$_Idle implements _Idle {
     TResult? Function(_DataIsAvailableInStorage value)?
         dataIsAvailableInStorage,
     TResult? Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult? Function(_PlayingAudio value)? playingAudio,
     TResult? Function(_Failure value)? failure,
   }) {
     return idle?.call(this);
@@ -217,6 +228,7 @@ class _$_Idle implements _Idle {
     TResult Function(_Idle value)? idle,
     TResult Function(_DataIsAvailableInStorage value)? dataIsAvailableInStorage,
     TResult Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult Function(_PlayingAudio value)? playingAudio,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -279,6 +291,7 @@ class _$_DataIsAvailableInStorage implements _DataIsAvailableInStorage {
     required TResult Function(bool isLoading) idle,
     required TResult Function() dataIsAvailableInStorage,
     required TResult Function() getAudioSuccess,
+    required TResult Function() playingAudio,
     required TResult Function(AyahFailure? failure, String message) failure,
   }) {
     return dataIsAvailableInStorage();
@@ -290,6 +303,7 @@ class _$_DataIsAvailableInStorage implements _DataIsAvailableInStorage {
     TResult? Function(bool isLoading)? idle,
     TResult? Function()? dataIsAvailableInStorage,
     TResult? Function()? getAudioSuccess,
+    TResult? Function()? playingAudio,
     TResult? Function(AyahFailure? failure, String message)? failure,
   }) {
     return dataIsAvailableInStorage?.call();
@@ -301,6 +315,7 @@ class _$_DataIsAvailableInStorage implements _DataIsAvailableInStorage {
     TResult Function(bool isLoading)? idle,
     TResult Function()? dataIsAvailableInStorage,
     TResult Function()? getAudioSuccess,
+    TResult Function()? playingAudio,
     TResult Function(AyahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
@@ -317,6 +332,7 @@ class _$_DataIsAvailableInStorage implements _DataIsAvailableInStorage {
     required TResult Function(_DataIsAvailableInStorage value)
         dataIsAvailableInStorage,
     required TResult Function(_GetAudioSuccess value) getAudioSuccess,
+    required TResult Function(_PlayingAudio value) playingAudio,
     required TResult Function(_Failure value) failure,
   }) {
     return dataIsAvailableInStorage(this);
@@ -329,6 +345,7 @@ class _$_DataIsAvailableInStorage implements _DataIsAvailableInStorage {
     TResult? Function(_DataIsAvailableInStorage value)?
         dataIsAvailableInStorage,
     TResult? Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult? Function(_PlayingAudio value)? playingAudio,
     TResult? Function(_Failure value)? failure,
   }) {
     return dataIsAvailableInStorage?.call(this);
@@ -340,6 +357,7 @@ class _$_DataIsAvailableInStorage implements _DataIsAvailableInStorage {
     TResult Function(_Idle value)? idle,
     TResult Function(_DataIsAvailableInStorage value)? dataIsAvailableInStorage,
     TResult Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult Function(_PlayingAudio value)? playingAudio,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -395,6 +413,7 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
     required TResult Function(bool isLoading) idle,
     required TResult Function() dataIsAvailableInStorage,
     required TResult Function() getAudioSuccess,
+    required TResult Function() playingAudio,
     required TResult Function(AyahFailure? failure, String message) failure,
   }) {
     return getAudioSuccess();
@@ -406,6 +425,7 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
     TResult? Function(bool isLoading)? idle,
     TResult? Function()? dataIsAvailableInStorage,
     TResult? Function()? getAudioSuccess,
+    TResult? Function()? playingAudio,
     TResult? Function(AyahFailure? failure, String message)? failure,
   }) {
     return getAudioSuccess?.call();
@@ -417,6 +437,7 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
     TResult Function(bool isLoading)? idle,
     TResult Function()? dataIsAvailableInStorage,
     TResult Function()? getAudioSuccess,
+    TResult Function()? playingAudio,
     TResult Function(AyahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
@@ -433,6 +454,7 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
     required TResult Function(_DataIsAvailableInStorage value)
         dataIsAvailableInStorage,
     required TResult Function(_GetAudioSuccess value) getAudioSuccess,
+    required TResult Function(_PlayingAudio value) playingAudio,
     required TResult Function(_Failure value) failure,
   }) {
     return getAudioSuccess(this);
@@ -445,6 +467,7 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
     TResult? Function(_DataIsAvailableInStorage value)?
         dataIsAvailableInStorage,
     TResult? Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult? Function(_PlayingAudio value)? playingAudio,
     TResult? Function(_Failure value)? failure,
   }) {
     return getAudioSuccess?.call(this);
@@ -456,6 +479,7 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
     TResult Function(_Idle value)? idle,
     TResult Function(_DataIsAvailableInStorage value)? dataIsAvailableInStorage,
     TResult Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult Function(_PlayingAudio value)? playingAudio,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
@@ -468,6 +492,128 @@ class _$_GetAudioSuccess implements _GetAudioSuccess {
 
 abstract class _GetAudioSuccess implements AyahVoiceControllerState {
   const factory _GetAudioSuccess() = _$_GetAudioSuccess;
+}
+
+/// @nodoc
+abstract class _$$_PlayingAudioCopyWith<$Res> {
+  factory _$$_PlayingAudioCopyWith(
+          _$_PlayingAudio value, $Res Function(_$_PlayingAudio) then) =
+      __$$_PlayingAudioCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PlayingAudioCopyWithImpl<$Res>
+    extends _$AyahVoiceControllerStateCopyWithImpl<$Res, _$_PlayingAudio>
+    implements _$$_PlayingAudioCopyWith<$Res> {
+  __$$_PlayingAudioCopyWithImpl(
+      _$_PlayingAudio _value, $Res Function(_$_PlayingAudio) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PlayingAudio implements _PlayingAudio {
+  const _$_PlayingAudio();
+
+  @override
+  String toString() {
+    return 'AyahVoiceControllerState.playingAudio()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PlayingAudio);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isLoading) idle,
+    required TResult Function() dataIsAvailableInStorage,
+    required TResult Function() getAudioSuccess,
+    required TResult Function() playingAudio,
+    required TResult Function(AyahFailure? failure, String message) failure,
+  }) {
+    return playingAudio();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool isLoading)? idle,
+    TResult? Function()? dataIsAvailableInStorage,
+    TResult? Function()? getAudioSuccess,
+    TResult? Function()? playingAudio,
+    TResult? Function(AyahFailure? failure, String message)? failure,
+  }) {
+    return playingAudio?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isLoading)? idle,
+    TResult Function()? dataIsAvailableInStorage,
+    TResult Function()? getAudioSuccess,
+    TResult Function()? playingAudio,
+    TResult Function(AyahFailure? failure, String message)? failure,
+    required TResult orElse(),
+  }) {
+    if (playingAudio != null) {
+      return playingAudio();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Idle value) idle,
+    required TResult Function(_DataIsAvailableInStorage value)
+        dataIsAvailableInStorage,
+    required TResult Function(_GetAudioSuccess value) getAudioSuccess,
+    required TResult Function(_PlayingAudio value) playingAudio,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return playingAudio(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Idle value)? idle,
+    TResult? Function(_DataIsAvailableInStorage value)?
+        dataIsAvailableInStorage,
+    TResult? Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult? Function(_PlayingAudio value)? playingAudio,
+    TResult? Function(_Failure value)? failure,
+  }) {
+    return playingAudio?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Idle value)? idle,
+    TResult Function(_DataIsAvailableInStorage value)? dataIsAvailableInStorage,
+    TResult Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult Function(_PlayingAudio value)? playingAudio,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (playingAudio != null) {
+      return playingAudio(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlayingAudio implements AyahVoiceControllerState {
+  const factory _PlayingAudio() = _$_PlayingAudio;
 }
 
 /// @nodoc
@@ -559,6 +705,7 @@ class _$_Failure implements _Failure {
     required TResult Function(bool isLoading) idle,
     required TResult Function() dataIsAvailableInStorage,
     required TResult Function() getAudioSuccess,
+    required TResult Function() playingAudio,
     required TResult Function(AyahFailure? failure, String message) failure,
   }) {
     return failure(this.failure, message);
@@ -570,6 +717,7 @@ class _$_Failure implements _Failure {
     TResult? Function(bool isLoading)? idle,
     TResult? Function()? dataIsAvailableInStorage,
     TResult? Function()? getAudioSuccess,
+    TResult? Function()? playingAudio,
     TResult? Function(AyahFailure? failure, String message)? failure,
   }) {
     return failure?.call(this.failure, message);
@@ -581,6 +729,7 @@ class _$_Failure implements _Failure {
     TResult Function(bool isLoading)? idle,
     TResult Function()? dataIsAvailableInStorage,
     TResult Function()? getAudioSuccess,
+    TResult Function()? playingAudio,
     TResult Function(AyahFailure? failure, String message)? failure,
     required TResult orElse(),
   }) {
@@ -597,6 +746,7 @@ class _$_Failure implements _Failure {
     required TResult Function(_DataIsAvailableInStorage value)
         dataIsAvailableInStorage,
     required TResult Function(_GetAudioSuccess value) getAudioSuccess,
+    required TResult Function(_PlayingAudio value) playingAudio,
     required TResult Function(_Failure value) failure,
   }) {
     return failure(this);
@@ -609,6 +759,7 @@ class _$_Failure implements _Failure {
     TResult? Function(_DataIsAvailableInStorage value)?
         dataIsAvailableInStorage,
     TResult? Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult? Function(_PlayingAudio value)? playingAudio,
     TResult? Function(_Failure value)? failure,
   }) {
     return failure?.call(this);
@@ -620,6 +771,7 @@ class _$_Failure implements _Failure {
     TResult Function(_Idle value)? idle,
     TResult Function(_DataIsAvailableInStorage value)? dataIsAvailableInStorage,
     TResult Function(_GetAudioSuccess value)? getAudioSuccess,
+    TResult Function(_PlayingAudio value)? playingAudio,
     TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
