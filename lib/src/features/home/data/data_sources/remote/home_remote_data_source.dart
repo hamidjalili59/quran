@@ -1,3 +1,5 @@
+// ignore_for_file: one_member_abstracts
+
 import 'package:api_service/api_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';

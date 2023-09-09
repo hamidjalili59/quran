@@ -13,7 +13,7 @@ class CacheHomeSurahDataUseCase
 
   @override
   Future<Either<HomeFailure, void>> call(
-          {tuple.Tuple1<ListOfHomeSurah>? param}) =>
+          {tuple.Tuple1<ListOfHomeSurah>? param,}) =>
       (param == null)
           ? Future.value(left(const HomeFailure.nullParam()))
           : repo.cacheHomeData(surah: param.value1);

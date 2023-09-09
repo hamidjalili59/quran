@@ -26,7 +26,7 @@ mixin _$Surah {
   String? get name => throw _privateConstructorUsedError;
   @HiveField(2, defaultValue: 0)
   int? get numberOfAyahs => throw _privateConstructorUsedError;
-  @HiveField(3, defaultValue: [])
+  @HiveField(3, defaultValue: List)
   List<Ayah>? get ayahs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $SurahCopyWith<$Res> {
       {@HiveField(0, defaultValue: 0) int? number,
       @HiveField(1, defaultValue: '') String? name,
       @HiveField(2, defaultValue: 0) int? numberOfAyahs,
-      @HiveField(3, defaultValue: []) List<Ayah>? ayahs});
+      @HiveField(3, defaultValue: List) List<Ayah>? ayahs});
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ abstract class _$$_SurahCopyWith<$Res> implements $SurahCopyWith<$Res> {
       {@HiveField(0, defaultValue: 0) int? number,
       @HiveField(1, defaultValue: '') String? name,
       @HiveField(2, defaultValue: 0) int? numberOfAyahs,
-      @HiveField(3, defaultValue: []) List<Ayah>? ayahs});
+      @HiveField(3, defaultValue: List) List<Ayah>? ayahs});
 }
 
 /// @nodoc
@@ -140,7 +140,7 @@ class _$_Surah implements _Surah {
       {@HiveField(0, defaultValue: 0) this.number,
       @HiveField(1, defaultValue: '') this.name,
       @HiveField(2, defaultValue: 0) this.numberOfAyahs,
-      @HiveField(3, defaultValue: []) final List<Ayah>? ayahs})
+      @HiveField(3, defaultValue: List) final List<Ayah>? ayahs})
       : _ayahs = ayahs;
 
   factory _$_Surah.fromJson(Map<String, dynamic> json) =>
@@ -157,7 +157,7 @@ class _$_Surah implements _Surah {
   final int? numberOfAyahs;
   final List<Ayah>? _ayahs;
   @override
-  @HiveField(3, defaultValue: [])
+  @HiveField(3, defaultValue: List)
   List<Ayah>? get ayahs {
     final value = _ayahs;
     if (value == null) return null;
@@ -207,7 +207,7 @@ abstract class _Surah implements Surah {
       {@HiveField(0, defaultValue: 0) final int? number,
       @HiveField(1, defaultValue: '') final String? name,
       @HiveField(2, defaultValue: 0) final int? numberOfAyahs,
-      @HiveField(3, defaultValue: []) final List<Ayah>? ayahs}) = _$_Surah;
+      @HiveField(3, defaultValue: List) final List<Ayah>? ayahs}) = _$_Surah;
 
   factory _Surah.fromJson(Map<String, dynamic> json) = _$_Surah.fromJson;
 
@@ -221,7 +221,7 @@ abstract class _Surah implements Surah {
   @HiveField(2, defaultValue: 0)
   int? get numberOfAyahs;
   @override
-  @HiveField(3, defaultValue: [])
+  @HiveField(3, defaultValue: List)
   List<Ayah>? get ayahs;
   @override
   @JsonKey(ignore: true)

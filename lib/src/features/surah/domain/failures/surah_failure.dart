@@ -3,7 +3,7 @@
 import 'package:database_service/database_service.dart';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../core/failures/failure.dart';
+import 'package:quran/src/features/core/failures/failure.dart';
 
 part 'surah_failure.freezed.dart';
 

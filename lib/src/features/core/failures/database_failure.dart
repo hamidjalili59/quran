@@ -1,6 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'failure.dart';
+import 'package:quran/src/features/core/failures/failure.dart';
 
 part 'database_failure.freezed.dart';
 

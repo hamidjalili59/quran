@@ -7,7 +7,7 @@ import 'package:quran/src/features/auth/domain/models/otp_verify_response.dart';
 abstract class AuthRepository {
   //
   Future<Either<AuthFailure, OtpHandshakeResponse>> otpHandshake(
-      {required double phoneNumber});
+      {required double phoneNumber,});
   //
   Future<Either<AuthFailure, OtpVerifyResponse>> otpVerify({
     required OtpVerifyParams verifyParams,

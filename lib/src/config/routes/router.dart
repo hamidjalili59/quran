@@ -13,12 +13,12 @@ class AppRouter extends _$AppRouter {
   @override
   final List<AutoRoute> routes = <AutoRoute>[
     AutoRoute(
-      path: "/",
+      path: '/',
       page: Splash.page,
       initial: true,
     ),
     AutoRoute(
-      path: "/intro",
+      path: '/intro',
       page: Intro.page,
     ),
     // AutoRoute(
@@ -26,7 +26,7 @@ class AppRouter extends _$AppRouter {
     //   page: Home1.page,
     // ),
     CustomRoute(
-      path: "/home",
+      path: '/home',
       page: Home.page,
       durationInMilliseconds: 1500,
       transitionsBuilder: TransitionsBuilders.fadeIn,
@@ -36,11 +36,11 @@ class AppRouter extends _$AppRouter {
     //   page: Home.page,
     // ),
     AutoRoute(
-      path: "/auth",
+      path: '/auth',
       page: Auth.page,
     ),
     AutoRoute(
-      path: "/surah",
+      path: '/surah',
       page: Surah_masir.page,
     ),
   ];

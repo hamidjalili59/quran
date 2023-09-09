@@ -1,6 +1,5 @@
-import 'package:hive/hive.dart';
-// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 
 part 'home_surah_model.freezed.dart';
 part 'home_surah_model.g.dart';

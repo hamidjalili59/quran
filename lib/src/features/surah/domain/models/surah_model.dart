@@ -1,6 +1,5 @@
-import 'package:hive/hive.dart';
-// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 import 'package:quran/src/features/surah/domain/models/ayah_model.dart';
 
 part 'surah_model.freezed.dart';
@@ -22,7 +21,7 @@ class Surah with _$Surah {
     @HiveField(0, defaultValue: 0) int? number,
     @HiveField(1, defaultValue: '') String? name,
     @HiveField(2, defaultValue: 0) int? numberOfAyahs,
-    @HiveField(3, defaultValue: []) List<Ayah>? ayahs,
+    @HiveField(3, defaultValue: List) List<Ayah>? ayahs,
   }) = _Surah;
 
   ///das

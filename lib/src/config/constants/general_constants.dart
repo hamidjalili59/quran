@@ -5,7 +5,7 @@ class GeneralConstants {
   static Size defaultDesignSize = const Size(390, 844);
   static double defaultBorderRadius = 10;
   static int currentIndexPage = 0;
-  static int surahNumber = 0;
+  // static int surahNumber = 0;
   static Surah currentSurah = Surah();
   static Surah currentSurahTranslate = Surah();
   static String defaultFontName = '';
@@ -18,4 +18,12 @@ class GeneralConstants {
 
   static Color backgroundColor = const Color.fromARGB(255, 250, 239, 222);
   static Color mainColor = const Color.fromARGB(255, 120, 97, 177);
+  static Gradient? gradient = const SweepGradient(
+    colors: [
+      Color(0xff061a1a),
+      Color(0xff041c1e),
+      Color(0xff103b41),
+      Color(0xff061a1a),
+    ],
+  );
 }

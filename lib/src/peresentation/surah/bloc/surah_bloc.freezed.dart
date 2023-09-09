@@ -22,7 +22,7 @@ mixin _$SurahEvent {
     required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
     required TResult Function() checkSurahDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+    required TResult Function(int ayahNumber, Surah surah, Surah? translate)
         changeAyah,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,7 +32,8 @@ mixin _$SurahEvent {
     TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult? Function()? checkSurahDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah? translate)?
+        changeAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +42,7 @@ mixin _$SurahEvent {
     TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult Function()? checkSurahDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah? translate)? changeAyah,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -165,7 +166,7 @@ class _$_GetSurah implements _GetSurah {
     required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
     required TResult Function() checkSurahDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+    required TResult Function(int ayahNumber, Surah surah, Surah? translate)
         changeAyah,
   }) {
     return getSurah(surahNumber);
@@ -178,7 +179,8 @@ class _$_GetSurah implements _GetSurah {
     TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult? Function()? checkSurahDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah? translate)?
+        changeAyah,
   }) {
     return getSurah?.call(surahNumber);
   }
@@ -190,7 +192,7 @@ class _$_GetSurah implements _GetSurah {
     TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult Function()? checkSurahDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah? translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (getSurah != null) {
@@ -322,7 +324,7 @@ class _$_GetSurahTranslate implements _GetSurahTranslate {
     required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
     required TResult Function() checkSurahDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+    required TResult Function(int ayahNumber, Surah surah, Surah? translate)
         changeAyah,
   }) {
     return getSurahTranslate(surahNumber);
@@ -335,7 +337,8 @@ class _$_GetSurahTranslate implements _GetSurahTranslate {
     TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult? Function()? checkSurahDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah? translate)?
+        changeAyah,
   }) {
     return getSurahTranslate?.call(surahNumber);
   }
@@ -347,7 +350,7 @@ class _$_GetSurahTranslate implements _GetSurahTranslate {
     TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult Function()? checkSurahDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah? translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (getSurahTranslate != null) {
@@ -497,7 +500,7 @@ class _$_CacheSurahData implements _CacheSurahData {
     required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
     required TResult Function() checkSurahDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+    required TResult Function(int ayahNumber, Surah surah, Surah? translate)
         changeAyah,
   }) {
     return cacheSurahData(surahNumber, surah);
@@ -510,7 +513,8 @@ class _$_CacheSurahData implements _CacheSurahData {
     TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult? Function()? checkSurahDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah? translate)?
+        changeAyah,
   }) {
     return cacheSurahData?.call(surahNumber, surah);
   }
@@ -522,7 +526,7 @@ class _$_CacheSurahData implements _CacheSurahData {
     TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult Function()? checkSurahDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah? translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (cacheSurahData != null) {
@@ -631,7 +635,7 @@ class _$_CheckSurahDataIsAvailable implements _CheckSurahDataIsAvailable {
     required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
     required TResult Function() checkSurahDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+    required TResult Function(int ayahNumber, Surah surah, Surah? translate)
         changeAyah,
   }) {
     return checkSurahDataIsAvailable();
@@ -644,7 +648,8 @@ class _$_CheckSurahDataIsAvailable implements _CheckSurahDataIsAvailable {
     TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult? Function()? checkSurahDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah? translate)?
+        changeAyah,
   }) {
     return checkSurahDataIsAvailable?.call();
   }
@@ -656,7 +661,7 @@ class _$_CheckSurahDataIsAvailable implements _CheckSurahDataIsAvailable {
     TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult Function()? checkSurahDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah? translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (checkSurahDataIsAvailable != null) {
@@ -719,10 +724,10 @@ abstract class _$$_ChangeAyahCopyWith<$Res> {
           _$_ChangeAyah value, $Res Function(_$_ChangeAyah) then) =
       __$$_ChangeAyahCopyWithImpl<$Res>;
   @useResult
-  $Res call({int ayahNumber, Surah surah, Surah translate});
+  $Res call({int ayahNumber, Surah surah, Surah? translate});
 
   $SurahCopyWith<$Res> get surah;
-  $SurahCopyWith<$Res> get translate;
+  $SurahCopyWith<$Res>? get translate;
 }
 
 /// @nodoc
@@ -738,7 +743,7 @@ class __$$_ChangeAyahCopyWithImpl<$Res>
   $Res call({
     Object? ayahNumber = null,
     Object? surah = null,
-    Object? translate = null,
+    Object? translate = freezed,
   }) {
     return _then(_$_ChangeAyah(
       null == ayahNumber
@@ -749,10 +754,10 @@ class __$$_ChangeAyahCopyWithImpl<$Res>
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
               as Surah,
-      null == translate
+      translate: freezed == translate
           ? _value.translate
           : translate // ignore: cast_nullable_to_non_nullable
-              as Surah,
+              as Surah?,
     ));
   }
 
@@ -766,8 +771,12 @@ class __$$_ChangeAyahCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $SurahCopyWith<$Res> get translate {
-    return $SurahCopyWith<$Res>(_value.translate, (value) {
+  $SurahCopyWith<$Res>? get translate {
+    if (_value.translate == null) {
+      return null;
+    }
+
+    return $SurahCopyWith<$Res>(_value.translate!, (value) {
       return _then(_value.copyWith(translate: value));
     });
   }
@@ -776,14 +785,14 @@ class __$$_ChangeAyahCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeAyah implements _ChangeAyah {
-  const _$_ChangeAyah(this.ayahNumber, this.surah, this.translate);
+  const _$_ChangeAyah(this.ayahNumber, this.surah, {this.translate});
 
   @override
   final int ayahNumber;
   @override
   final Surah surah;
   @override
-  final Surah translate;
+  final Surah? translate;
 
   @override
   String toString() {
@@ -818,7 +827,7 @@ class _$_ChangeAyah implements _ChangeAyah {
     required TResult Function(int surahNumber) getSurahTranslate,
     required TResult Function(int surahNumber, Surah surah) cacheSurahData,
     required TResult Function() checkSurahDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+    required TResult Function(int ayahNumber, Surah surah, Surah? translate)
         changeAyah,
   }) {
     return changeAyah(ayahNumber, surah, translate);
@@ -831,7 +840,8 @@ class _$_ChangeAyah implements _ChangeAyah {
     TResult? Function(int surahNumber)? getSurahTranslate,
     TResult? Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult? Function()? checkSurahDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah? translate)?
+        changeAyah,
   }) {
     return changeAyah?.call(ayahNumber, surah, translate);
   }
@@ -843,7 +853,7 @@ class _$_ChangeAyah implements _ChangeAyah {
     TResult Function(int surahNumber)? getSurahTranslate,
     TResult Function(int surahNumber, Surah surah)? cacheSurahData,
     TResult Function()? checkSurahDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, Surah translate)? changeAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah? translate)? changeAyah,
     required TResult orElse(),
   }) {
     if (changeAyah != null) {
@@ -897,13 +907,12 @@ class _$_ChangeAyah implements _ChangeAyah {
 }
 
 abstract class _ChangeAyah implements SurahEvent {
-  const factory _ChangeAyah(
-          final int ayahNumber, final Surah surah, final Surah translate) =
-      _$_ChangeAyah;
+  const factory _ChangeAyah(final int ayahNumber, final Surah surah,
+      {final Surah? translate}) = _$_ChangeAyah;
 
   int get ayahNumber;
   Surah get surah;
-  Surah get translate;
+  Surah? get translate;
   @JsonKey(ignore: true)
   _$$_ChangeAyahCopyWith<_$_ChangeAyah> get copyWith =>
       throw _privateConstructorUsedError;

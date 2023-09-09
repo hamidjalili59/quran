@@ -4,7 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: unnecessary_lambdas, cascade_invocations
 // ignore_for_file: lines_longer_than_80_chars
 // coverage:ignore-file
 
@@ -83,52 +83,71 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i4.AyahRemoteDataSource>(() => ayahFeatureModule.remoteDS);
     gh.factory<_i5.AyahRepository>(() => ayahFeatureModule.repo);
     gh.factory<_i6.CacheHomeSurahDataUseCase>(
-        () => homeFeatureModule.cacheHomeDataUseCase);
+      () => homeFeatureModule.cacheHomeDataUseCase,
+    );
     gh.factory<_i7.CacheSurahDataUseCase>(
-        () => surahFeatureModule.cacheSurahDataUseCase);
+      () => surahFeatureModule.cacheSurahDataUseCase,
+    );
     gh.factory<_i8.CacheSurahTranslateDataUseCase>(
-        () => surahFeatureModule.cacheSurahTranslateDataUseCase);
+      () => surahFeatureModule.cacheSurahTranslateDataUseCase,
+    );
     gh.factory<_i9.GetAudioAyahFromServerUseCase>(
-        () => ayahFeatureModule.getAyahsUseCase);
+      () => ayahFeatureModule.getAyahsUseCase,
+    );
     gh.factory<_i10.GetCachedAyahDataUseCase>(
-        () => ayahFeatureModule.getCachedAyahDataUseCase);
+      () => ayahFeatureModule.getCachedAyahDataUseCase,
+    );
     gh.factory<_i11.GetCachedHomeSurahDataUseCase>(
-        () => homeFeatureModule.getCachedHomeDataUseCase);
+      () => homeFeatureModule.getCachedHomeDataUseCase,
+    );
     gh.factory<_i12.GetCachedSurahDataUseCase>(
-        () => surahFeatureModule.getCachedSurahDataUseCase);
+      () => surahFeatureModule.getCachedSurahDataUseCase,
+    );
     gh.factory<_i13.GetCachedSurahTranslateDataUseCase>(
-        () => surahFeatureModule.getCachedSurahTranslateDataUseCase);
+      () => surahFeatureModule.getCachedSurahTranslateDataUseCase,
+    );
     gh.factory<_i14.GetHomeSurahFromServerUseCase>(
-        () => homeFeatureModule.getHomesUseCase);
+      () => homeFeatureModule.getHomesUseCase,
+    );
     gh.factory<_i15.GetSurahFromServerUseCase>(
-        () => surahFeatureModule.getSurahUseCase);
+      () => surahFeatureModule.getSurahUseCase,
+    );
     gh.factory<_i16.GetSurahTranslateFromServerUseCase>(
-        () => surahFeatureModule.getSurahTranslateUseCase);
-    gh.lazySingleton<_i17.HomeBloc>(() => _i17.HomeBloc(
-          gh<_i6.CacheHomeSurahDataUseCase>(),
-          gh<_i11.GetCachedHomeSurahDataUseCase>(),
-          gh<_i14.GetHomeSurahFromServerUseCase>(),
-        ));
+      () => surahFeatureModule.getSurahTranslateUseCase,
+    );
+    gh.lazySingleton<_i17.HomeBloc>(
+      () => _i17.HomeBloc(
+        gh<_i6.CacheHomeSurahDataUseCase>(),
+        gh<_i11.GetCachedHomeSurahDataUseCase>(),
+        gh<_i14.GetHomeSurahFromServerUseCase>(),
+      ),
+    );
     gh.factory<_i18.HomeLocalDataSource>(() => homeFeatureModule.localDS);
     gh.factory<_i19.HomeRemoteDataSource>(() => homeFeatureModule.remoteDS);
     gh.factory<_i20.HomeRepository>(() => homeFeatureModule.repo);
     gh.factory<_i21.RequestInterceptor>(() => _i21.RequestInterceptor());
-    gh.factory<_i22.SurahBloc>(() => _i22.SurahBloc(
-          gh<_i12.GetCachedSurahDataUseCase>(),
-          gh<_i15.GetSurahFromServerUseCase>(),
-          gh<_i7.CacheSurahDataUseCase>(),
-          gh<_i13.GetCachedSurahTranslateDataUseCase>(),
-          gh<_i8.CacheSurahTranslateDataUseCase>(),
-          gh<_i16.GetSurahTranslateFromServerUseCase>(),
-        ));
+    gh.lazySingleton<_i22.SurahBloc>(
+      () => _i22.SurahBloc(
+        gh<_i12.GetCachedSurahDataUseCase>(),
+        gh<_i15.GetSurahFromServerUseCase>(),
+        gh<_i7.CacheSurahDataUseCase>(),
+        gh<_i13.GetCachedSurahTranslateDataUseCase>(),
+        gh<_i8.CacheSurahTranslateDataUseCase>(),
+        gh<_i16.GetSurahTranslateFromServerUseCase>(),
+      ),
+    );
     gh.factory<_i23.SurahLocalDataSource>(
-        () => surahFeatureModule.localSurahDS);
+      () => surahFeatureModule.localSurahDS,
+    );
     gh.factory<_i24.SurahRemoteDataSource>(() => surahFeatureModule.remoteDS);
     gh.factory<_i25.SurahRepository>(() => surahFeatureModule.repo);
     gh.factory<_i26.SurahTranslateLocalDataSource>(
-        () => surahFeatureModule.localTranslateDS);
-    gh.lazySingleton<_i27.AyahVoiceControllerBloc>(() =>
-        _i27.AyahVoiceControllerBloc(gh<_i9.GetAudioAyahFromServerUseCase>()));
+      () => surahFeatureModule.localTranslateDS,
+    );
+    gh.lazySingleton<_i27.AyahVoiceControllerBloc>(
+      () =>
+          _i27.AyahVoiceControllerBloc(gh<_i9.GetAudioAyahFromServerUseCase>()),
+    );
     return this;
   }
 }

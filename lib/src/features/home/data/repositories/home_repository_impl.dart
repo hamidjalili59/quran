@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dartz/dartz.dart';
 
 import 'package:quran/src/features/core/models/base_response.dart';
 import 'package:quran/src/features/home/data/data_sources/local/home_local_data_source.dart';
@@ -6,18 +7,17 @@ import 'package:quran/src/features/home/data/data_sources/remote/home_remote_dat
 import 'package:quran/src/features/home/domain/failures/home_failure.dart';
 import 'package:quran/src/features/home/domain/models/list_of_surahs.dart';
 import 'package:quran/src/features/home/domain/repositories/home_repository.dart';
-import 'package:dartz/dartz.dart';
 
 class HomeRepositoryImpl extends HomeRepository {
+  HomeRepositoryImpl(this._remoteDS, this._localDS);
   final HomeRemoteDataSource _remoteDS;
   final HomeLocalDataSource _localDS;
   final String tokenFieldKey = 'token';
 
-  HomeRepositoryImpl(this._remoteDS, this._localDS);
-
   @override
-  Future<Either<HomeFailure, void>> cacheHomeData(
-      {required ListOfHomeSurah surah}) {
+  Future<Either<HomeFailure, void>> cacheHomeData({
+    required ListOfHomeSurah surah,
+  }) {
     return _localDS
         .cacheData(fieldKey: 'surahs', value: jsonEncode(surah.toJson()))
         .then(
@@ -31,18 +31,21 @@ class HomeRepositoryImpl extends HomeRepository {
   @override
   Future<Either<HomeFailure, ListOfHomeSurah>> getCachedHomeData() {
     return _localDS.getCachedData(fieldKey: 'surahs').then(
-      (value) => value.fold(
-          (l) => left<HomeFailure, ListOfHomeSurah>(HomeFailure.database(l)),
-          (r) {
-            ListOfHomeSurah listOfSurahParameter =
-                ListOfHomeSurah.fromJson(jsonDecode(r ?? "{}"));
-            if (listOfSurahParameter.listSurahs!.isEmpty) {
-              left<HomeFailure, ListOfHomeSurah>(const HomeFailure.nullParam());
-            }
-            return right<HomeFailure, ListOfHomeSurah>(listOfSurahParameter);
-          },
-        ),
-    );
+          (value) => value.fold(
+            (l) => left<HomeFailure, ListOfHomeSurah>(HomeFailure.database(l)),
+            (r) {
+              final listOfSurahParameter = ListOfHomeSurah.fromJson(
+                jsonDecode(r ?? '{}') as Map<String, Object?>,
+              );
+              if (listOfSurahParameter.listSurahs!.isEmpty) {
+                left<HomeFailure, ListOfHomeSurah>(
+                  const HomeFailure.nullParam(),
+                );
+              }
+              return right<HomeFailure, ListOfHomeSurah>(listOfSurahParameter);
+            },
+          ),
+        );
   }
 
   @override

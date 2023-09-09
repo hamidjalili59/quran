@@ -10,8 +10,8 @@ abstract class AyahRepository {
       {required int ayahNumber,
       required Surah surah,
       required String qari,
-      required String audioLink});
+      required String audioLink,});
   //
   Future<Either<AyahFailure, File>> getCachedAyahData(
-      {required int ayahNumber, required Surah surah, required String qari});
+      {required int ayahNumber, required Surah surah, required String qari,});
 }

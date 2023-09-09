@@ -8,7 +8,7 @@ class SurahState with _$SurahState {
   const factory SurahState.ayahIndex(
       {@Default(0) int currentAyah,
       Surah? surah,
-      Surah? translate}) = _AyahIndex;
+      Surah? translate,}) = _AyahIndex;
   const factory SurahState.failure({
     SurahFailure? failure,
     @Default('') String message,

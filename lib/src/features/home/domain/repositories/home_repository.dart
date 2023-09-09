@@ -9,5 +9,5 @@ abstract class HomeRepository {
   Future<Either<HomeFailure, ListOfHomeSurah>> getCachedHomeData();
   //
   Future<Either<HomeFailure, void>> cacheHomeData(
-      {required ListOfHomeSurah surah});
+      {required ListOfHomeSurah surah,});
 }

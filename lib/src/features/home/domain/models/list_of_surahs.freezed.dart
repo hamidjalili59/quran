@@ -20,7 +20,7 @@ ListOfHomeSurah _$ListOfHomeSurahFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListOfHomeSurah {
-  @HiveField(0, defaultValue: [])
+  @HiveField(0, defaultValue: List)
   List<HomeSurah>? get listSurahs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ListOfHomeSurahCopyWith<$Res> {
           ListOfHomeSurah value, $Res Function(ListOfHomeSurah) then) =
       _$ListOfHomeSurahCopyWithImpl<$Res, ListOfHomeSurah>;
   @useResult
-  $Res call({@HiveField(0, defaultValue: []) List<HomeSurah>? listSurahs});
+  $Res call({@HiveField(0, defaultValue: List) List<HomeSurah>? listSurahs});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ abstract class _$$_ListOfHomeSurahCopyWith<$Res>
       __$$_ListOfHomeSurahCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@HiveField(0, defaultValue: []) List<HomeSurah>? listSurahs});
+  $Res call({@HiveField(0, defaultValue: List) List<HomeSurah>? listSurahs});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$$_ListOfHomeSurahCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ListOfHomeSurah implements _ListOfHomeSurah {
   _$_ListOfHomeSurah(
-      {@HiveField(0, defaultValue: []) final List<HomeSurah>? listSurahs})
+      {@HiveField(0, defaultValue: List) final List<HomeSurah>? listSurahs})
       : _listSurahs = listSurahs;
 
   factory _$_ListOfHomeSurah.fromJson(Map<String, dynamic> json) =>
@@ -107,7 +107,7 @@ class _$_ListOfHomeSurah implements _ListOfHomeSurah {
 
   final List<HomeSurah>? _listSurahs;
   @override
-  @HiveField(0, defaultValue: [])
+  @HiveField(0, defaultValue: List)
   List<HomeSurah>? get listSurahs {
     final value = _listSurahs;
     if (value == null) return null;
@@ -151,14 +151,14 @@ class _$_ListOfHomeSurah implements _ListOfHomeSurah {
 
 abstract class _ListOfHomeSurah implements ListOfHomeSurah {
   factory _ListOfHomeSurah(
-          {@HiveField(0, defaultValue: []) final List<HomeSurah>? listSurahs}) =
-      _$_ListOfHomeSurah;
+      {@HiveField(0, defaultValue: List)
+      final List<HomeSurah>? listSurahs}) = _$_ListOfHomeSurah;
 
   factory _ListOfHomeSurah.fromJson(Map<String, dynamic> json) =
       _$_ListOfHomeSurah.fromJson;
 
   @override
-  @HiveField(0, defaultValue: [])
+  @HiveField(0, defaultValue: List)
   List<HomeSurah>? get listSurahs;
   @override
   @JsonKey(ignore: true)

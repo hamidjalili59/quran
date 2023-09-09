@@ -45,13 +45,13 @@ class OtpHandshakeResponseAdapter extends TypeAdapter<OtpHandshakeResponse> {
 // **************************************************************************
 
 OtpHandshakeResponse _$OtpHandshakeResponseFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     OtpHandshakeResponse(
       verifyCode: json['verifyCode'] as String,
     );
 
 Map<String, dynamic> _$OtpHandshakeResponseToJson(
-        OtpHandshakeResponse instance) =>
+        OtpHandshakeResponse instance,) =>
     <String, dynamic>{
       'verifyCode': instance.verifyCode,
     };

@@ -1,22 +1,18 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'dart:async';
 
 import 'package:dio/dio.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:quran/src/config/constants/general_constants.dart';
 import 'package:quran/src/config/routes/router.dart';
 import 'package:quran/src/config/utils/function_helper.dart';
+import 'package:quran/src/features/core/models/tuple.dart' as tuple;
+import 'package:quran/src/features/home/domain/failures/home_failure.dart';
 import 'package:quran/src/features/home/domain/models/list_of_surahs.dart';
 import 'package:quran/src/features/home/domain/use_cases/cache_home_surah_data_use_case.dart';
 import 'package:quran/src/features/home/domain/use_cases/get_cached_home_surah_data_use_case.dart';
 import 'package:quran/src/features/home/domain/use_cases/get_home_surah_from_server_use_case.dart';
-import 'package:quran/src/features/core/models/tuple.dart' as tuple;
 import 'package:quran/src/injectable/injectable.dart';
-
-import '../../../features/home/domain/failures/home_failure.dart';
 
 part 'home_state.dart';
 part 'home_event.dart';
@@ -24,10 +20,6 @@ part 'home_bloc.freezed.dart';
 
 @lazySingleton
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final CacheHomeSurahDataUseCase _cacheHomeSurahsDataUseCase;
-  final GetCachedHomeSurahDataUseCase _getCachedHomeSurahDataUseCase;
-  final GetHomeSurahFromServerUseCase _getHomeSurahFromServerUseCase;
-  final AppRouter appRoute = getIt.get<AppRouter>();
   HomeBloc(
     this._cacheHomeSurahsDataUseCase,
     this._getCachedHomeSurahDataUseCase,
@@ -36,12 +28,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<_GetHomeSurahs>(_onGetHomeSurahs);
     on<_OpenOneSurah>(_onOpenOneSurah);
     on<_CheckDataIsAvailable>(_onCheckDataIsAvailable);
-    add(_CheckDataIsAvailable());
+    add(const _CheckDataIsAvailable());
   }
+  final CacheHomeSurahDataUseCase _cacheHomeSurahsDataUseCase;
+  final GetCachedHomeSurahDataUseCase _getCachedHomeSurahDataUseCase;
+  final GetHomeSurahFromServerUseCase _getHomeSurahFromServerUseCase;
+  final AppRouter appRoute = getIt.get<AppRouter>();
 
   @override
   void onEvent(HomeEvent event) {
-    FunctionHelper().logMessage('>>>>> Auth Bloc event: ${event.toString()}');
+    FunctionHelper().logMessage('>>>>> Auth Bloc event: $event');
     super.onEvent(event);
   }
 
@@ -49,9 +45,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> _onOpenOneSurah(
     _OpenOneSurah event,
     Emitter<HomeState> emit,
-  ) {
-    GeneralConstants.surahNumber = event.surahNumber;
-    appRoute.pushNamed('/surah');
+  ) async {
+    await Future<void>.delayed(const Duration(milliseconds: 100))
+        .whenComplete(() => appRoute.pushNamed('/surah'));
+    // if (getIt.isRegistered<int>(instanceName: "SurahIndex")) {
+    //   getIt.unregister<int>(instanceName: 'SurahIndex');
+    //   getIt.registerSingleton<int>(event.surahNumber,
+    //       instanceName: 'SurahIndex');
+    // } else {
+    //   getIt.registerSingleton<int>(event.surahNumber,
+    //       instanceName: 'SurahIndex');
+    // }
   }
 
   //
@@ -61,13 +65,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     try {
       final getCachedSurahsResult = await _getCachedHomeSurahDataUseCase();
-      getCachedSurahsResult.fold(
+      await getCachedSurahsResult.fold(
         (l) async {
           emit(_Failure(failure: l));
         },
         (r) {
           if ((r.listSurahs ?? []).isEmpty) {
-            emit(_Failure());
+            emit(const _Failure());
           } else {
             emit(_DataIsAvailableInStorage(listSurahs: r));
           }
@@ -83,14 +87,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _GetHomeSurahs event,
     Emitter<HomeState> emit,
   ) async {
-    final checkInternet = await Dio().get('https://www.google.com');
+    final checkInternet = await Dio().get<void>('https://www.google.com');
     if (checkInternet.statusCode != 200) {
-      emit(_Failure(message: 'No Internet'));
+      emit(const _Failure(message: 'No Internet'));
     } else {
       emit(const _Idle(isLoading: true));
       try {
         final getSurahsResult = await _getHomeSurahFromServerUseCase();
-        await Future.delayed(const Duration(milliseconds: 150));
+        await Future<void>.delayed(const Duration(milliseconds: 150));
         getSurahsResult.fold(
           (l) {
             emit(_Failure(failure: l));

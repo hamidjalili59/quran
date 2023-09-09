@@ -799,22 +799,28 @@ mixin _$AyahVoiceControllerEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String ayahAudioLink) getAyahAudio,
     required TResult Function() checkDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, String link)
-        playAyah,
+    required TResult Function(CurrentSurah currentSurah) playAyah,
+    required TResult Function() stopAyah,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        nextAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String ayahAudioLink)? getAyahAudio,
     TResult? Function()? checkDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult? Function(CurrentSurah currentSurah)? playAyah,
+    TResult? Function()? stopAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String ayahAudioLink)? getAyahAudio,
     TResult Function()? checkDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult Function(CurrentSurah currentSurah)? playAyah,
+    TResult Function()? stopAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -823,6 +829,8 @@ mixin _$AyahVoiceControllerEvent {
     required TResult Function(_GetAyahAudio value) getAyahAudio,
     required TResult Function(_CheckDataIsAvailable value) checkDataIsAvailable,
     required TResult Function(_PlayAyah value) playAyah,
+    required TResult Function(_StopAyah value) stopAyah,
+    required TResult Function(_NextAyah value) nextAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -830,6 +838,8 @@ mixin _$AyahVoiceControllerEvent {
     TResult? Function(_GetAyahAudio value)? getAyahAudio,
     TResult? Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult? Function(_PlayAyah value)? playAyah,
+    TResult? Function(_StopAyah value)? stopAyah,
+    TResult? Function(_NextAyah value)? nextAyah,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -837,6 +847,8 @@ mixin _$AyahVoiceControllerEvent {
     TResult Function(_GetAyahAudio value)? getAyahAudio,
     TResult Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult Function(_PlayAyah value)? playAyah,
+    TResult Function(_StopAyah value)? stopAyah,
+    TResult Function(_NextAyah value)? nextAyah,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -928,8 +940,10 @@ class _$_GetAyahAudio implements _GetAyahAudio {
   TResult when<TResult extends Object?>({
     required TResult Function(String ayahAudioLink) getAyahAudio,
     required TResult Function() checkDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, String link)
-        playAyah,
+    required TResult Function(CurrentSurah currentSurah) playAyah,
+    required TResult Function() stopAyah,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        nextAyah,
   }) {
     return getAyahAudio(ayahAudioLink);
   }
@@ -939,7 +953,9 @@ class _$_GetAyahAudio implements _GetAyahAudio {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String ayahAudioLink)? getAyahAudio,
     TResult? Function()? checkDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult? Function(CurrentSurah currentSurah)? playAyah,
+    TResult? Function()? stopAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
   }) {
     return getAyahAudio?.call(ayahAudioLink);
   }
@@ -949,7 +965,9 @@ class _$_GetAyahAudio implements _GetAyahAudio {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String ayahAudioLink)? getAyahAudio,
     TResult Function()? checkDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult Function(CurrentSurah currentSurah)? playAyah,
+    TResult Function()? stopAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
     required TResult orElse(),
   }) {
     if (getAyahAudio != null) {
@@ -964,6 +982,8 @@ class _$_GetAyahAudio implements _GetAyahAudio {
     required TResult Function(_GetAyahAudio value) getAyahAudio,
     required TResult Function(_CheckDataIsAvailable value) checkDataIsAvailable,
     required TResult Function(_PlayAyah value) playAyah,
+    required TResult Function(_StopAyah value) stopAyah,
+    required TResult Function(_NextAyah value) nextAyah,
   }) {
     return getAyahAudio(this);
   }
@@ -974,6 +994,8 @@ class _$_GetAyahAudio implements _GetAyahAudio {
     TResult? Function(_GetAyahAudio value)? getAyahAudio,
     TResult? Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult? Function(_PlayAyah value)? playAyah,
+    TResult? Function(_StopAyah value)? stopAyah,
+    TResult? Function(_NextAyah value)? nextAyah,
   }) {
     return getAyahAudio?.call(this);
   }
@@ -984,6 +1006,8 @@ class _$_GetAyahAudio implements _GetAyahAudio {
     TResult Function(_GetAyahAudio value)? getAyahAudio,
     TResult Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult Function(_PlayAyah value)? playAyah,
+    TResult Function(_StopAyah value)? stopAyah,
+    TResult Function(_NextAyah value)? nextAyah,
     required TResult orElse(),
   }) {
     if (getAyahAudio != null) {
@@ -1043,8 +1067,10 @@ class _$_CheckDataIsAvailable implements _CheckDataIsAvailable {
   TResult when<TResult extends Object?>({
     required TResult Function(String ayahAudioLink) getAyahAudio,
     required TResult Function() checkDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, String link)
-        playAyah,
+    required TResult Function(CurrentSurah currentSurah) playAyah,
+    required TResult Function() stopAyah,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        nextAyah,
   }) {
     return checkDataIsAvailable();
   }
@@ -1054,7 +1080,9 @@ class _$_CheckDataIsAvailable implements _CheckDataIsAvailable {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String ayahAudioLink)? getAyahAudio,
     TResult? Function()? checkDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult? Function(CurrentSurah currentSurah)? playAyah,
+    TResult? Function()? stopAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
   }) {
     return checkDataIsAvailable?.call();
   }
@@ -1064,7 +1092,9 @@ class _$_CheckDataIsAvailable implements _CheckDataIsAvailable {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String ayahAudioLink)? getAyahAudio,
     TResult Function()? checkDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult Function(CurrentSurah currentSurah)? playAyah,
+    TResult Function()? stopAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
     required TResult orElse(),
   }) {
     if (checkDataIsAvailable != null) {
@@ -1079,6 +1109,8 @@ class _$_CheckDataIsAvailable implements _CheckDataIsAvailable {
     required TResult Function(_GetAyahAudio value) getAyahAudio,
     required TResult Function(_CheckDataIsAvailable value) checkDataIsAvailable,
     required TResult Function(_PlayAyah value) playAyah,
+    required TResult Function(_StopAyah value) stopAyah,
+    required TResult Function(_NextAyah value) nextAyah,
   }) {
     return checkDataIsAvailable(this);
   }
@@ -1089,6 +1121,8 @@ class _$_CheckDataIsAvailable implements _CheckDataIsAvailable {
     TResult? Function(_GetAyahAudio value)? getAyahAudio,
     TResult? Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult? Function(_PlayAyah value)? playAyah,
+    TResult? Function(_StopAyah value)? stopAyah,
+    TResult? Function(_NextAyah value)? nextAyah,
   }) {
     return checkDataIsAvailable?.call(this);
   }
@@ -1099,6 +1133,8 @@ class _$_CheckDataIsAvailable implements _CheckDataIsAvailable {
     TResult Function(_GetAyahAudio value)? getAyahAudio,
     TResult Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult Function(_PlayAyah value)? playAyah,
+    TResult Function(_StopAyah value)? stopAyah,
+    TResult Function(_NextAyah value)? nextAyah,
     required TResult orElse(),
   }) {
     if (checkDataIsAvailable != null) {
@@ -1118,9 +1154,9 @@ abstract class _$$_PlayAyahCopyWith<$Res> {
           _$_PlayAyah value, $Res Function(_$_PlayAyah) then) =
       __$$_PlayAyahCopyWithImpl<$Res>;
   @useResult
-  $Res call({int ayahNumber, Surah surah, String link});
+  $Res call({CurrentSurah currentSurah});
 
-  $SurahCopyWith<$Res> get surah;
+  $CurrentSurahCopyWith<$Res> get currentSurah;
 }
 
 /// @nodoc
@@ -1134,31 +1170,21 @@ class __$$_PlayAyahCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ayahNumber = null,
-    Object? surah = null,
-    Object? link = null,
+    Object? currentSurah = null,
   }) {
     return _then(_$_PlayAyah(
-      null == ayahNumber
-          ? _value.ayahNumber
-          : ayahNumber // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == surah
-          ? _value.surah
-          : surah // ignore: cast_nullable_to_non_nullable
-              as Surah,
-      null == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == currentSurah
+          ? _value.currentSurah
+          : currentSurah // ignore: cast_nullable_to_non_nullable
+              as CurrentSurah,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SurahCopyWith<$Res> get surah {
-    return $SurahCopyWith<$Res>(_value.surah, (value) {
-      return _then(_value.copyWith(surah: value));
+  $CurrentSurahCopyWith<$Res> get currentSurah {
+    return $CurrentSurahCopyWith<$Res>(_value.currentSurah, (value) {
+      return _then(_value.copyWith(currentSurah: value));
     });
   }
 }
@@ -1166,18 +1192,14 @@ class __$$_PlayAyahCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PlayAyah implements _PlayAyah {
-  const _$_PlayAyah(this.ayahNumber, this.surah, this.link);
+  const _$_PlayAyah(this.currentSurah);
 
   @override
-  final int ayahNumber;
-  @override
-  final Surah surah;
-  @override
-  final String link;
+  final CurrentSurah currentSurah;
 
   @override
   String toString() {
-    return 'AyahVoiceControllerEvent.playAyah(ayahNumber: $ayahNumber, surah: $surah, link: $link)';
+    return 'AyahVoiceControllerEvent.playAyah(currentSurah: $currentSurah)';
   }
 
   @override
@@ -1185,14 +1207,12 @@ class _$_PlayAyah implements _PlayAyah {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PlayAyah &&
-            (identical(other.ayahNumber, ayahNumber) ||
-                other.ayahNumber == ayahNumber) &&
-            (identical(other.surah, surah) || other.surah == surah) &&
-            (identical(other.link, link) || other.link == link));
+            (identical(other.currentSurah, currentSurah) ||
+                other.currentSurah == currentSurah));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, ayahNumber, surah, link);
+  int get hashCode => Object.hash(runtimeType, currentSurah);
 
   @JsonKey(ignore: true)
   @override
@@ -1205,10 +1225,12 @@ class _$_PlayAyah implements _PlayAyah {
   TResult when<TResult extends Object?>({
     required TResult Function(String ayahAudioLink) getAyahAudio,
     required TResult Function() checkDataIsAvailable,
-    required TResult Function(int ayahNumber, Surah surah, String link)
-        playAyah,
+    required TResult Function(CurrentSurah currentSurah) playAyah,
+    required TResult Function() stopAyah,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        nextAyah,
   }) {
-    return playAyah(ayahNumber, surah, link);
+    return playAyah(currentSurah);
   }
 
   @override
@@ -1216,9 +1238,11 @@ class _$_PlayAyah implements _PlayAyah {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String ayahAudioLink)? getAyahAudio,
     TResult? Function()? checkDataIsAvailable,
-    TResult? Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult? Function(CurrentSurah currentSurah)? playAyah,
+    TResult? Function()? stopAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
   }) {
-    return playAyah?.call(ayahNumber, surah, link);
+    return playAyah?.call(currentSurah);
   }
 
   @override
@@ -1226,11 +1250,13 @@ class _$_PlayAyah implements _PlayAyah {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String ayahAudioLink)? getAyahAudio,
     TResult Function()? checkDataIsAvailable,
-    TResult Function(int ayahNumber, Surah surah, String link)? playAyah,
+    TResult Function(CurrentSurah currentSurah)? playAyah,
+    TResult Function()? stopAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
     required TResult orElse(),
   }) {
     if (playAyah != null) {
-      return playAyah(ayahNumber, surah, link);
+      return playAyah(currentSurah);
     }
     return orElse();
   }
@@ -1241,6 +1267,8 @@ class _$_PlayAyah implements _PlayAyah {
     required TResult Function(_GetAyahAudio value) getAyahAudio,
     required TResult Function(_CheckDataIsAvailable value) checkDataIsAvailable,
     required TResult Function(_PlayAyah value) playAyah,
+    required TResult Function(_StopAyah value) stopAyah,
+    required TResult Function(_NextAyah value) nextAyah,
   }) {
     return playAyah(this);
   }
@@ -1251,6 +1279,8 @@ class _$_PlayAyah implements _PlayAyah {
     TResult? Function(_GetAyahAudio value)? getAyahAudio,
     TResult? Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult? Function(_PlayAyah value)? playAyah,
+    TResult? Function(_StopAyah value)? stopAyah,
+    TResult? Function(_NextAyah value)? nextAyah,
   }) {
     return playAyah?.call(this);
   }
@@ -1261,6 +1291,8 @@ class _$_PlayAyah implements _PlayAyah {
     TResult Function(_GetAyahAudio value)? getAyahAudio,
     TResult Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
     TResult Function(_PlayAyah value)? playAyah,
+    TResult Function(_StopAyah value)? stopAyah,
+    TResult Function(_NextAyah value)? nextAyah,
     required TResult orElse(),
   }) {
     if (playAyah != null) {
@@ -1271,13 +1303,324 @@ class _$_PlayAyah implements _PlayAyah {
 }
 
 abstract class _PlayAyah implements AyahVoiceControllerEvent {
-  const factory _PlayAyah(
-      final int ayahNumber, final Surah surah, final String link) = _$_PlayAyah;
+  const factory _PlayAyah(final CurrentSurah currentSurah) = _$_PlayAyah;
+
+  CurrentSurah get currentSurah;
+  @JsonKey(ignore: true)
+  _$$_PlayAyahCopyWith<_$_PlayAyah> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_StopAyahCopyWith<$Res> {
+  factory _$$_StopAyahCopyWith(
+          _$_StopAyah value, $Res Function(_$_StopAyah) then) =
+      __$$_StopAyahCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_StopAyahCopyWithImpl<$Res>
+    extends _$AyahVoiceControllerEventCopyWithImpl<$Res, _$_StopAyah>
+    implements _$$_StopAyahCopyWith<$Res> {
+  __$$_StopAyahCopyWithImpl(
+      _$_StopAyah _value, $Res Function(_$_StopAyah) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_StopAyah implements _StopAyah {
+  const _$_StopAyah();
+
+  @override
+  String toString() {
+    return 'AyahVoiceControllerEvent.stopAyah()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_StopAyah);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String ayahAudioLink) getAyahAudio,
+    required TResult Function() checkDataIsAvailable,
+    required TResult Function(CurrentSurah currentSurah) playAyah,
+    required TResult Function() stopAyah,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        nextAyah,
+  }) {
+    return stopAyah();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String ayahAudioLink)? getAyahAudio,
+    TResult? Function()? checkDataIsAvailable,
+    TResult? Function(CurrentSurah currentSurah)? playAyah,
+    TResult? Function()? stopAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
+  }) {
+    return stopAyah?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String ayahAudioLink)? getAyahAudio,
+    TResult Function()? checkDataIsAvailable,
+    TResult Function(CurrentSurah currentSurah)? playAyah,
+    TResult Function()? stopAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
+    required TResult orElse(),
+  }) {
+    if (stopAyah != null) {
+      return stopAyah();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAyahAudio value) getAyahAudio,
+    required TResult Function(_CheckDataIsAvailable value) checkDataIsAvailable,
+    required TResult Function(_PlayAyah value) playAyah,
+    required TResult Function(_StopAyah value) stopAyah,
+    required TResult Function(_NextAyah value) nextAyah,
+  }) {
+    return stopAyah(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAyahAudio value)? getAyahAudio,
+    TResult? Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
+    TResult? Function(_PlayAyah value)? playAyah,
+    TResult? Function(_StopAyah value)? stopAyah,
+    TResult? Function(_NextAyah value)? nextAyah,
+  }) {
+    return stopAyah?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAyahAudio value)? getAyahAudio,
+    TResult Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
+    TResult Function(_PlayAyah value)? playAyah,
+    TResult Function(_StopAyah value)? stopAyah,
+    TResult Function(_NextAyah value)? nextAyah,
+    required TResult orElse(),
+  }) {
+    if (stopAyah != null) {
+      return stopAyah(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StopAyah implements AyahVoiceControllerEvent {
+  const factory _StopAyah() = _$_StopAyah;
+}
+
+/// @nodoc
+abstract class _$$_NextAyahCopyWith<$Res> {
+  factory _$$_NextAyahCopyWith(
+          _$_NextAyah value, $Res Function(_$_NextAyah) then) =
+      __$$_NextAyahCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int ayahNumber, Surah surah, Surah translate});
+
+  $SurahCopyWith<$Res> get surah;
+  $SurahCopyWith<$Res> get translate;
+}
+
+/// @nodoc
+class __$$_NextAyahCopyWithImpl<$Res>
+    extends _$AyahVoiceControllerEventCopyWithImpl<$Res, _$_NextAyah>
+    implements _$$_NextAyahCopyWith<$Res> {
+  __$$_NextAyahCopyWithImpl(
+      _$_NextAyah _value, $Res Function(_$_NextAyah) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ayahNumber = null,
+    Object? surah = null,
+    Object? translate = null,
+  }) {
+    return _then(_$_NextAyah(
+      null == ayahNumber
+          ? _value.ayahNumber
+          : ayahNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == surah
+          ? _value.surah
+          : surah // ignore: cast_nullable_to_non_nullable
+              as Surah,
+      null == translate
+          ? _value.translate
+          : translate // ignore: cast_nullable_to_non_nullable
+              as Surah,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SurahCopyWith<$Res> get surah {
+    return $SurahCopyWith<$Res>(_value.surah, (value) {
+      return _then(_value.copyWith(surah: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SurahCopyWith<$Res> get translate {
+    return $SurahCopyWith<$Res>(_value.translate, (value) {
+      return _then(_value.copyWith(translate: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_NextAyah implements _NextAyah {
+  const _$_NextAyah(this.ayahNumber, this.surah, this.translate);
+
+  @override
+  final int ayahNumber;
+  @override
+  final Surah surah;
+  @override
+  final Surah translate;
+
+  @override
+  String toString() {
+    return 'AyahVoiceControllerEvent.nextAyah(ayahNumber: $ayahNumber, surah: $surah, translate: $translate)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NextAyah &&
+            (identical(other.ayahNumber, ayahNumber) ||
+                other.ayahNumber == ayahNumber) &&
+            (identical(other.surah, surah) || other.surah == surah) &&
+            (identical(other.translate, translate) ||
+                other.translate == translate));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, ayahNumber, surah, translate);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NextAyahCopyWith<_$_NextAyah> get copyWith =>
+      __$$_NextAyahCopyWithImpl<_$_NextAyah>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String ayahAudioLink) getAyahAudio,
+    required TResult Function() checkDataIsAvailable,
+    required TResult Function(CurrentSurah currentSurah) playAyah,
+    required TResult Function() stopAyah,
+    required TResult Function(int ayahNumber, Surah surah, Surah translate)
+        nextAyah,
+  }) {
+    return nextAyah(ayahNumber, surah, translate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String ayahAudioLink)? getAyahAudio,
+    TResult? Function()? checkDataIsAvailable,
+    TResult? Function(CurrentSurah currentSurah)? playAyah,
+    TResult? Function()? stopAyah,
+    TResult? Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
+  }) {
+    return nextAyah?.call(ayahNumber, surah, translate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String ayahAudioLink)? getAyahAudio,
+    TResult Function()? checkDataIsAvailable,
+    TResult Function(CurrentSurah currentSurah)? playAyah,
+    TResult Function()? stopAyah,
+    TResult Function(int ayahNumber, Surah surah, Surah translate)? nextAyah,
+    required TResult orElse(),
+  }) {
+    if (nextAyah != null) {
+      return nextAyah(ayahNumber, surah, translate);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAyahAudio value) getAyahAudio,
+    required TResult Function(_CheckDataIsAvailable value) checkDataIsAvailable,
+    required TResult Function(_PlayAyah value) playAyah,
+    required TResult Function(_StopAyah value) stopAyah,
+    required TResult Function(_NextAyah value) nextAyah,
+  }) {
+    return nextAyah(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAyahAudio value)? getAyahAudio,
+    TResult? Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
+    TResult? Function(_PlayAyah value)? playAyah,
+    TResult? Function(_StopAyah value)? stopAyah,
+    TResult? Function(_NextAyah value)? nextAyah,
+  }) {
+    return nextAyah?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAyahAudio value)? getAyahAudio,
+    TResult Function(_CheckDataIsAvailable value)? checkDataIsAvailable,
+    TResult Function(_PlayAyah value)? playAyah,
+    TResult Function(_StopAyah value)? stopAyah,
+    TResult Function(_NextAyah value)? nextAyah,
+    required TResult orElse(),
+  }) {
+    if (nextAyah != null) {
+      return nextAyah(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NextAyah implements AyahVoiceControllerEvent {
+  const factory _NextAyah(
+          final int ayahNumber, final Surah surah, final Surah translate) =
+      _$_NextAyah;
 
   int get ayahNumber;
   Surah get surah;
-  String get link;
+  Surah get translate;
   @JsonKey(ignore: true)
-  _$$_PlayAyahCopyWith<_$_PlayAyah> get copyWith =>
+  _$$_NextAyahCopyWith<_$_NextAyah> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,7 +5,7 @@ class PngAssets {
   static String get qari1 => '1'.png;
   static String get qari2 => 'abdolbaset'.png;
   static String get qari3 => 'minshawi'.png;
-  static String get background => 'background'.jpg;
+  static String get golvabolbol => 'background'.jpg;
   static String get waveform => 'wave_form'.png;
 }
 

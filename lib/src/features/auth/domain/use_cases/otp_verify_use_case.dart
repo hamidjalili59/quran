@@ -7,14 +7,21 @@ import 'package:quran/src/features/core/models/tuple.dart' as tuple;
 import 'package:quran/src/features/core/models/use_case.dart';
 
 class OtpVerifyUseCase
-    implements UseCase<AuthFailure, OtpVerifyResponse, tuple.Tuple2<double,OtpVerifyParams>> {
+    implements
+        UseCase<AuthFailure, OtpVerifyResponse,
+            tuple.Tuple2<double, OtpVerifyParams>> {
   const OtpVerifyUseCase(this.repo);
 
   final AuthRepository repo;
 
   @override
-  Future<Either<AuthFailure, OtpVerifyResponse>> call({tuple.Tuple2<double,OtpVerifyParams>? param}) =>
+  Future<Either<AuthFailure, OtpVerifyResponse>> call({
+    tuple.Tuple2<double, OtpVerifyParams>? param,
+  }) =>
       (param == null)
           ? Future.value(left(const AuthFailure.nullParam()))
-          : repo.otpVerify(phoneNumber: param.value1,verifyParams: param.value2);
+          : repo.otpVerify(
+              phoneNumber: param.value1,
+              verifyParams: param.value2,
+            );
 }

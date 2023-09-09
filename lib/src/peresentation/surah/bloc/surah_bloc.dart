@@ -10,6 +10,7 @@ import 'package:quran/src/config/constants/general_constants.dart';
 
 import 'package:quran/src/config/routes/router.dart';
 import 'package:quran/src/config/utils/function_helper.dart';
+import 'package:quran/src/features/core/models/tuple.dart' as tuple;
 import 'package:quran/src/features/surah/domain/failures/surah_failure.dart';
 import 'package:quran/src/features/surah/domain/models/surah_model.dart';
 import 'package:quran/src/features/surah/domain/use_cases/cache_surah_data_use_case.dart';
@@ -17,7 +18,6 @@ import 'package:quran/src/features/surah/domain/use_cases/cache_surah_translate_
 import 'package:quran/src/features/surah/domain/use_cases/get_cached_surah_data_use_case.dart';
 import 'package:quran/src/features/surah/domain/use_cases/get_cached_surah_translate_data_use_case.dart';
 import 'package:quran/src/features/surah/domain/use_cases/get_surah_from_server_use_case.dart';
-import 'package:quran/src/features/core/models/tuple.dart' as tuple;
 import 'package:quran/src/features/surah/domain/use_cases/get_surah_translate_from_server_use_case.dart';
 import 'package:quran/src/injectable/injectable.dart';
 
@@ -25,15 +25,8 @@ part 'surah_bloc.freezed.dart';
 part 'surah_event.dart';
 part 'surah_state.dart';
 
-@injectable
+@lazySingleton
 class SurahBloc extends Bloc<SurahEvent, SurahState> {
-  final GetCachedSurahDataUseCase _getCachedSurahDataUseCase;
-  final CacheSurahDataUseCase _cacheSurahDataUseCase;
-  final GetSurahFromServerUseCase _getSurahFromServerUseCase;
-  final GetCachedSurahTranslateDataUseCase _getCachedSurahTranslateDataUseCase;
-  final CacheSurahTranslateDataUseCase _cacheSurahTranslateDataUseCase;
-  final GetSurahTranslateFromServerUseCase _getSurahTranslateFromServerUseCase;
-  final AppRouter appRoute = getIt.get<AppRouter>();
   SurahBloc(
     this._getCachedSurahDataUseCase,
     this._getSurahFromServerUseCase,
@@ -45,12 +38,19 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
     on<_GetSurah>(_onGetSurah);
     on<_ChangeAyah>(_onChangeAyah);
     on<_CheckSurahDataIsAvailable>(_onCheckSurahDataAvailable);
-    add(_CheckSurahDataIsAvailable());
+    add(const _CheckSurahDataIsAvailable());
   }
+  final GetCachedSurahDataUseCase _getCachedSurahDataUseCase;
+  final CacheSurahDataUseCase _cacheSurahDataUseCase;
+  final GetSurahFromServerUseCase _getSurahFromServerUseCase;
+  final GetCachedSurahTranslateDataUseCase _getCachedSurahTranslateDataUseCase;
+  final CacheSurahTranslateDataUseCase _cacheSurahTranslateDataUseCase;
+  final GetSurahTranslateFromServerUseCase _getSurahTranslateFromServerUseCase;
+  final AppRouter appRoute = getIt.get<AppRouter>();
 
   @override
   void onEvent(SurahEvent event) {
-    FunctionHelper().logMessage('>>>>> Auth Bloc event: ${event.toString()}');
+    FunctionHelper().logMessage('>>>>> Auth Bloc event: $event');
     super.onEvent(event);
   }
 
@@ -60,15 +60,19 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
     Emitter<SurahState> emit,
   ) async {
     try {
-      final checkInternet = await Dio().get('https://www.google.com');
+      final checkInternet = await Dio().get<void>(
+        'https://www.google.com',
+      );
       if (checkInternet.statusCode != 200) {
-        emit(_Failure(message: 'No Internet'));
+        emit(const _Failure(message: 'No Internet'));
       } else {
         final getSurahsResult = await _getSurahFromServerUseCase(
-            param: tuple.Tuple1(event.surahNumber));
+          param: tuple.Tuple1(event.surahNumber),
+        );
         final getSurahTranslateResult =
             await _getSurahTranslateFromServerUseCase(
-                param: tuple.Tuple1(event.surahNumber));
+          param: tuple.Tuple1(event.surahNumber),
+        );
         getSurahsResult.fold(
           (l) {
             emit(_Failure(failure: l));
@@ -78,15 +82,25 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
               (l) => emit(_Failure(failure: l)),
               (tr) {
                 _cacheSurahTranslateDataUseCase.call(
-                    param: tuple.Tuple2(GeneralConstants.surahNumber, tr));
+                  param: tuple.Tuple2(
+                    getIt.get<int>(instanceName: 'SurahIndex'),
+                    tr,
+                  ),
+                );
                 _cacheSurahDataUseCase.call(
-                    param: tuple.Tuple2(GeneralConstants.surahNumber, r));
+                  param: tuple.Tuple2(
+                    getIt.get<int>(instanceName: 'SurahIndex'),
+                    r,
+                  ),
+                );
                 GeneralConstants.currentSurah = r;
                 GeneralConstants.currentSurahTranslate = tr;
-                emit(_GetSurahSuccess(
-                  surah: GeneralConstants.currentSurah,
-                  translate: GeneralConstants.currentSurahTranslate,
-                ));
+                emit(
+                  _GetSurahSuccess(
+                    surah: GeneralConstants.currentSurah,
+                    translate: GeneralConstants.currentSurahTranslate,
+                  ),
+                );
               },
             );
           },
@@ -109,12 +123,16 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
   ) async {
     try {
       GeneralConstants.currentSurah = event.surah;
-      GeneralConstants.currentSurahTranslate = event.translate;
-      emit(_AyahIndex(
-        currentAyah: event.ayahNumber,
-        surah: event.surah,
-        translate: event.translate,
-      ));
+      if (event.translate?.ayahs != null) {
+        GeneralConstants.currentSurahTranslate = event.translate!;
+      }
+      emit(
+        _AyahIndex(
+          currentAyah: event.ayahNumber,
+          surah: event.surah,
+          translate: event.translate ?? GeneralConstants.currentSurahTranslate,
+        ),
+      );
     } catch (e) {
       FunctionHelper().logErrorDetailMessage(
         e,
@@ -125,20 +143,26 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
   }
 
   FutureOr<void> _onCheckSurahDataAvailable(
-      _CheckSurahDataIsAvailable event, Emitter<SurahState> emit) async {
+    _CheckSurahDataIsAvailable event,
+    Emitter<SurahState> emit,
+  ) async {
     try {
       final getCachedSurahsResult = await _getCachedSurahDataUseCase(
-          param: tuple.Tuple1(GeneralConstants.surahNumber));
+        param: tuple.Tuple1(getIt.get<int>(instanceName: 'SurahIndex')),
+      );
       final getCachedSurahTranslateResult =
           await _getCachedSurahTranslateDataUseCase(
-              param: tuple.Tuple1(GeneralConstants.surahNumber));
-      getCachedSurahsResult.fold(
+        param: tuple.Tuple1(getIt.get<int>(instanceName: 'SurahIndex')),
+      );
+      await getCachedSurahsResult.fold(
         (l) async {
           emit(_Failure(failure: l));
         },
         (r) {
           getCachedSurahTranslateResult.fold(
-            (l) => null,
+            (l) {
+              emit(_Failure(failure: l));
+            },
             (tr) => emit(_GetSurahSuccess(surah: r, translate: tr)),
           );
         },

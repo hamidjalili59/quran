@@ -6,6 +6,12 @@ class AyahVoiceControllerEvent with _$AyahVoiceControllerEvent {
       _GetAyahAudio;
   const factory AyahVoiceControllerEvent.checkDataIsAvailable() =
       _CheckDataIsAvailable;
-  const factory AyahVoiceControllerEvent.playAyah(
-      int ayahNumber, Surah surah, String link) = _PlayAyah;
+  const factory AyahVoiceControllerEvent.playAyah(CurrentSurah currentSurah) =
+      _PlayAyah;
+  const factory AyahVoiceControllerEvent.stopAyah() = _StopAyah;
+  const factory AyahVoiceControllerEvent.nextAyah(
+    int ayahNumber,
+    Surah surah,
+    Surah translate,
+  ) = _NextAyah;
 }

@@ -9,6 +9,6 @@ class SurahEvent with _$SurahEvent {
       _CacheSurahData;
   const factory SurahEvent.checkSurahDataIsAvailable() =
       _CheckSurahDataIsAvailable;
-  const factory SurahEvent.changeAyah(
-      int ayahNumber, Surah surah, Surah translate) = _ChangeAyah;
+  const factory SurahEvent.changeAyah(int ayahNumber, Surah surah,
+      {Surah? translate,}) = _ChangeAyah;
 }

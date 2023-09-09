@@ -16,5 +16,5 @@ class CacheSurahTranslateDataUseCase
       (param == null)
           ? Future.value(left(const SurahFailure.nullParam()))
           : repo.cacheSurahTranslateData(
-              surahNumber: param.value1, surah: param.value2);
+              surahNumber: param.value1, surah: param.value2,);
 }

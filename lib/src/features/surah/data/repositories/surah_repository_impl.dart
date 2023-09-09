@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:quran/src/features/core/models/base_response.dart';
 import 'package:quran/src/features/surah/data/data_sources/local/surah_local_data_source.dart';
 import 'package:quran/src/features/surah/data/data_sources/local/surah_translate_data_source.dart';
@@ -5,23 +6,23 @@ import 'package:quran/src/features/surah/data/data_sources/remote/surah_remote_d
 import 'package:quran/src/features/surah/domain/failures/surah_failure.dart';
 import 'package:quran/src/features/surah/domain/models/surah_model.dart';
 import 'package:quran/src/features/surah/domain/repositories/surah_repository.dart';
-import 'package:dartz/dartz.dart';
 
 class SurahRepositoryImpl extends SurahRepository {
-  final SurahRemoteDataSource _remoteDS;
-  final SurahLocalDataSource _localSurahDS;
-  final SurahTranslateLocalDataSource _localTranslateDS;
-  final String tokenFieldKey = 'token';
-
   SurahRepositoryImpl(
     this._remoteDS,
     this._localSurahDS,
     this._localTranslateDS,
   );
+  final SurahRemoteDataSource _remoteDS;
+  final SurahLocalDataSource _localSurahDS;
+  final SurahTranslateLocalDataSource _localTranslateDS;
+  final String tokenFieldKey = 'token';
 
   @override
-  Future<Either<SurahFailure, void>> cacheSurahData(
-      {required int surahNumber, required Surah surah}) {
+  Future<Either<SurahFailure, void>> cacheSurahData({
+    required int surahNumber,
+    required Surah surah,
+  }) {
     return _localSurahDS
         .cacheData(fieldKey: surahNumber.toString(), value: surah)
         .then(
@@ -33,8 +34,9 @@ class SurahRepositoryImpl extends SurahRepository {
   }
 
   @override
-  Future<Either<SurahFailure, Surah>> getCachedSurahData(
-          {required int surahNumber}) =>
+  Future<Either<SurahFailure, Surah>> getCachedSurahData({
+    required int surahNumber,
+  }) =>
       _localSurahDS.getCachedData(fieldKey: surahNumber.toString()).then(
         (value) {
           return value.fold(
@@ -44,7 +46,8 @@ class SurahRepositoryImpl extends SurahRepository {
                 return right<SurahFailure, Surah>(r);
               } else {
                 return left<SurahFailure, Surah>(
-                    const SurahFailure.nullParam());
+                  const SurahFailure.nullParam(),
+                );
               }
             },
           );
@@ -58,7 +61,8 @@ class SurahRepositoryImpl extends SurahRepository {
             (l) => left<SurahFailure, Surah>(SurahFailure.api(l)),
             (r) {
               final surahDataFromServer = Surah.fromJson(
-                BaseResponse.fromJson(r.data ?? {}).data,
+                (BaseResponse.fromJson(r.data ?? {}).data)
+                    as Map<String, Object?>,
               );
               return right<SurahFailure, Surah>(surahDataFromServer);
             },
@@ -67,14 +71,16 @@ class SurahRepositoryImpl extends SurahRepository {
   }
 
   @override
-  Future<Either<SurahFailure, Surah>> getSurahTranslate(
-      {required int surahNumber}) {
+  Future<Either<SurahFailure, Surah>> getSurahTranslate({
+    required int surahNumber,
+  }) {
     return _remoteDS.getTranslateDataFromServer(surahNumber: surahNumber).then(
           (value) => value.fold(
             (l) => left<SurahFailure, Surah>(SurahFailure.api(l)),
             (r) {
               final surahDataFromServer = Surah.fromJson(
-                BaseResponse.fromJson(r.data ?? {}).data,
+                (BaseResponse.fromJson(r.data ?? {}).data)
+                    as Map<String, Object?>,
               );
               return right<SurahFailure, Surah>(surahDataFromServer);
             },
@@ -83,11 +89,15 @@ class SurahRepositoryImpl extends SurahRepository {
   }
 
   @override
-  Future<Either<SurahFailure, void>> cacheSurahTranslateData(
-      {required int surahNumber, required Surah surah}) {
+  Future<Either<SurahFailure, void>> cacheSurahTranslateData({
+    required int surahNumber,
+    required Surah surah,
+  }) {
     return _localTranslateDS
         .cacheData(
-            fieldKey: surahNumber.toString() + '_translate', value: surah)
+          fieldKey: '${surahNumber}_translate',
+          value: surah,
+        )
         .then(
           (value) => value.fold(
             (l) => left<SurahFailure, void>(SurahFailure.database(l)),
@@ -97,10 +107,11 @@ class SurahRepositoryImpl extends SurahRepository {
   }
 
   @override
-  Future<Either<SurahFailure, Surah>> getCachedSurahTranslateData(
-          {required int surahNumber}) =>
+  Future<Either<SurahFailure, Surah>> getCachedSurahTranslateData({
+    required int surahNumber,
+  }) =>
       _localTranslateDS
-          .getCachedData(fieldKey: surahNumber.toString() + '_translate')
+          .getCachedData(fieldKey: '${surahNumber}_translate')
           .then(
         (value) {
           return value.fold(
@@ -110,7 +121,8 @@ class SurahRepositoryImpl extends SurahRepository {
                 return right<SurahFailure, Surah>(r);
               } else {
                 return left<SurahFailure, Surah>(
-                    const SurahFailure.nullParam());
+                  const SurahFailure.nullParam(),
+                );
               }
             },
           );
