@@ -22,7 +22,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.3
   flutter_launcher_icons: ^0.13.1
-  flutter_native_splash: ^2.3.1
+  flutter_native_splash: ^2.3.2
   flutter_screenutil: ^5.9.0-beta
   freezed_annotation: ^2.4.1
   get_it: ^7.6.0
@@ -49,6 +49,15 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#041c1e"
+  color_dark: "#041c1e"
+  image: assets/images/icon.png
+  image_dark: assets/images/icon.png
+  android_12:
+    color: "#041c1e"
+    image: assets/images/icon.png
+    image_dark: assets/images/icon.png
+    color_dark: "#041c1e"
+    icon_background_color_dark: "#eeeeee"
   android_gravity: fill_vertical
   ios_content_mode: scaleAspectFit
   web_image_mode: contain
