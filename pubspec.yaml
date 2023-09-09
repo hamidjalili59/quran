@@ -48,9 +48,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
 
 flutter_native_splash:
-  image: "assets/images/background.jpg"
-  background_image: "assets/images/background.jpg"
-  color: "#1c3729"
+  color: "#041c1e"
   android_gravity: fill_vertical
   ios_content_mode: scaleAspectFit
   web_image_mode: contain
