@@ -1,0 +1,26 @@
+include: package:lint/strict.yaml
+
+linter:
+  rules:
+    public_member_api_docs: false
+    avoid_positional_boolean_parameters: false
+    use_build_context_synchronously: false
+    dangling_library_doc_comments: false
+    flutter_style_todos: false
+    use_setters_to_change_properties: false
+
+analyzer:
+  plugins:
+    - custom_lint
+  exclude:
+    - lib/**.g.dart
+    - lib/**.gr.dart
+    - lib/**.config.dart
+    - lib/**.freezed.dart
+    - lib/src/config/gen/**.dart
+    - lib/src/config/l10n/arb/**.dart
+  errors:
+    todo: ignore
+    fixme: ignore
+    must_be_immutable: ignore
+    invalid_annotation_target: ignore
