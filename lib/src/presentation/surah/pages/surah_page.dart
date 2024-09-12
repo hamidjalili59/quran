@@ -10,7 +10,6 @@ import 'package:quran/src/presentation/shared/components/loading_component.dart'
 import 'package:quran/src/presentation/shared/components/page_decorator.dart';
 import 'package:quran/src/presentation/surah/logic/ayah_audio_logic.dart';
 import 'package:quran/src/presentation/surah/logic/surah_logic.dart';
-import 'package:quran/src/presentation/surah/logic/sync_text_and_audio_logic.dart';
 import 'package:quran/src/presentation/surah/widgets/ayah_voice_widget.dart';
 
 class SurahPage extends ConsumerStatefulWidget {
