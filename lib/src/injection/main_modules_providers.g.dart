@@ -6,21 +6,7 @@ part of 'main_modules_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$talkerHash() => r'a76172a317b212e8f61b5e5fee2ab2132fe923e4';
-
-/// See also [talker].
-@ProviderFor(talker)
-final talkerProvider = Provider<Talker>.internal(
-  talker,
-  name: r'talkerProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$talkerHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef TalkerRef = ProviderRef<Talker>;
-String _$appHelperHash() => r'19dad049500c9b6ff09b65ec3aa723c75e127968';
+String _$appHelperHash() => r'78d5dd8523fe5b23bea9e35abc8d171c1d1a61c4';
 
 /// See also [appHelper].
 @ProviderFor(appHelper)
@@ -90,20 +76,5 @@ final audioPlayerProvider = Provider<AudioPlayer>.internal(
 );
 
 typedef AudioPlayerRef = ProviderRef<AudioPlayer>;
-String _$formValidatorsHash() => r'1c41e0503ea81319f865fded6429a78de53d3d63';
-
-/// See also [formValidators].
-@ProviderFor(formValidators)
-final formValidatorsProvider = Provider<FormValidators>.internal(
-  formValidators,
-  name: r'formValidatorsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$formValidatorsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef FormValidatorsRef = ProviderRef<FormValidators>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

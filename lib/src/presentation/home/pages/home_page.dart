@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -24,13 +22,30 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
+  final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
+    _scrollController.addListener(_onScroll);
     WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback(
       (timeStamp) async =>
           await ref.read(homeSurahListProvider.notifier).loadSurahList(),
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _onScroll() async{
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 100) {
+      await ref.read(homeSurahListProvider.notifier).loadMoreSurahs();
+    }
   }
 
   final List<TagModel> tags = [
@@ -71,6 +86,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           Positioned.fill(
             child: CustomScrollView(
+              controller: _scrollController,
               slivers: <Widget>[
                 const SliverAppBar.medium(
                   automaticallyImplyLeading: false,
@@ -106,7 +122,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                             Directionality(
                               textDirection: TextDirection.rtl,
                               child: Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: kOnBackgroundColor,
                                 ),
                                 width: context.deviceWidthFactor(1),
@@ -130,37 +146,27 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ),
                 SliverPadding(
                   padding: EdgeInsets.zero,
-                  sliver: ref.watch(homeSurahListProvider).maybeWhen(
-                        orElse: () => SliverToBoxAdapter(
-                          child: SizedBox(
-                            height: context.deviceHeightFactor(.5),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                LoadingComponent(),
-                              ],
-                            ),
-                          ),
+                  sliver: ref.watch(homeSurahListProvider).when(
+                        loading: () => const SliverToBoxAdapter(
+                          child: Center(child: LoadingComponent()),
                         ),
-                        data: (data) => SliverList(
+                        error: (error, stack) => SliverToBoxAdapter(
+                          child: Center(child: Text('خطا در بارگذاری: $error')),
+                        ),
+                        data: (surahsState) => SliverList(
                           delegate: SliverChildBuilderDelegate(
-                            (context, index) =>
-                                ref.watch(homeSurahTagFilterProvider) ==
-                                        HomeSurahTagFilterEnum.all
-                                    ? SurahTileWidget(
-                                        index: index,
-                                        surah: data[index],
-                                      )
-                                    : Center(
-                                        child: Text(
-                                          'لیست خالی است',
-                                          style: kMediumBoldTextStyle,
-                                        ),
-                                      ),
-                            childCount: ref.watch(homeSurahTagFilterProvider) ==
-                                    HomeSurahTagFilterEnum.all
-                                ? data.length
-                                : 1,
+                            (context, index) {
+                              if (index >= surahsState.surahs.length) {
+                                return surahsState.hasMore
+                                    ? const Center(child: LoadingComponent())
+                                    : const SizedBox.shrink();
+                              }
+                              return SurahTileWidget(
+                                index: index,
+                                surah: surahsState.surahs[index],
+                              );
+                            },
+                            childCount: surahsState.surahs.length + 1,
                           ),
                         ),
                       ),
@@ -215,7 +221,7 @@ class _HomePlayerWidgetState extends ConsumerState<HomePlayerWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           if (ref.read(audioServiceProvider).hasValue) ...[
-                            SizedBox(height: 6),
+                            const SizedBox(height: 6),
                             Row(
                               textDirection: TextDirection.rtl,
                               children: [
@@ -244,7 +250,8 @@ class _HomePlayerWidgetState extends ConsumerState<HomePlayerWidget> {
                                             .toPersianString()
                                         : '',
                                     style: kMediumBoldTextStyle.copyWith(
-                                        color: Colors.white,),
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -280,8 +287,8 @@ class _HomePlayerWidgetState extends ConsumerState<HomePlayerWidget> {
                                 ),
                               ),
                             ),
-                          ]
-                        ,],
+                          ],
+                        ],
                       ),
                     ),
                   ),

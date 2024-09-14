@@ -27,19 +27,20 @@ class $AssetsAnimationsGen {
 class $AssetsPngsGen {
   const $AssetsPngsGen();
 
-  /// File path: assets/pngs/1.png
-  AssetGenImage get a1 => const AssetGenImage('assets/pngs/1.png');
+  /// File path: assets/pngs/1.webp
+  AssetGenImage get a1 => const AssetGenImage('assets/pngs/1.webp');
 
-  /// File path: assets/pngs/abdolbaset.png
+  /// File path: assets/pngs/abdolbaset.webp
   AssetGenImage get abdolbaset =>
-      const AssetGenImage('assets/pngs/abdolbaset.png');
+      const AssetGenImage('assets/pngs/abdolbaset.webp');
 
-  /// File path: assets/pngs/minshawi.png
-  AssetGenImage get minshawi => const AssetGenImage('assets/pngs/minshawi.png');
+  /// File path: assets/pngs/minshawi.webp
+  AssetGenImage get minshawi =>
+      const AssetGenImage('assets/pngs/minshawi.webp');
 
-  /// File path: assets/pngs/wave_form.png
+  /// File path: assets/pngs/wave_form.webp
   AssetGenImage get waveForm =>
-      const AssetGenImage('assets/pngs/wave_form.png');
+      const AssetGenImage('assets/pngs/wave_form.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [a1, abdolbaset, minshawi, waveForm];

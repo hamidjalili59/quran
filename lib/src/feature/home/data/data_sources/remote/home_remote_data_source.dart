@@ -7,7 +7,7 @@ import 'package:quran/src/injection/main_modules_providers.dart';
 
 abstract class HomeRemoteDataSource {
   Future<Either<ServerFailure, Response<Map<String, dynamic>>>>
-      getDataSurahsFromServer();
+      fetchDataSurahsFromServer();
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -15,7 +15,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final Ref ref;
   @override
   Future<Either<ServerFailure, Response<Map<String, dynamic>>>>
-      getDataSurahsFromServer() async {
+      fetchDataSurahsFromServer() async {
     final result = await ref.read(dioProvider).get<Map<String, dynamic>>(
           HomeEndpoints.surahList,
         );

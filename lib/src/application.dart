@@ -3,7 +3,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quran/src/config/l10n/arb/app_localizations.dart';
 import 'package:quran/src/injection/main_modules_providers.dart';
-import 'package:toastification/toastification.dart';
 
 /// main widget of the app
 class Application extends ConsumerWidget {
@@ -12,8 +11,7 @@ class Application extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ToastificationWrapper(
-      child: MaterialApp.router(
+    return MaterialApp.router(
           routerConfig: ref.read(appRouterProvider).router,
           debugShowCheckedModeBanner: false,
           theme: Theme.of(context).copyWith(
@@ -29,7 +27,6 @@ class Application extends ConsumerWidget {
           ],
           supportedLocales: AppLocalizations.supportedLocales,
           locale: AppLocalizations.supportedLocales.first,
-        ),
-    );
+        );
   }
 }

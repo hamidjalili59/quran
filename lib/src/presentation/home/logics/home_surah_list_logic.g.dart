@@ -6,12 +6,12 @@ part of 'home_surah_list_logic.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeSurahListHash() => r'61a8281c17e4ebf744415574196eb4ad9b57e89a';
+String _$homeSurahListHash() => r'9e9516c033e00fcee1a5ea538124e3eb63b511d8';
 
 /// See also [HomeSurahList].
 @ProviderFor(HomeSurahList)
 final homeSurahListProvider =
-    AsyncNotifierProvider<HomeSurahList, List<Surah>>.internal(
+    AsyncNotifierProvider<HomeSurahList, HomeSurahListState>.internal(
   HomeSurahList.new,
   name: r'homeSurahListProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,7 +21,7 @@ final homeSurahListProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$HomeSurahList = AsyncNotifier<List<Surah>>;
+typedef _$HomeSurahList = AsyncNotifier<HomeSurahListState>;
 String _$homeSurahTagFilterHash() =>
     r'f011b18f64e588b40d16a8896a68a737bf5de605';
 

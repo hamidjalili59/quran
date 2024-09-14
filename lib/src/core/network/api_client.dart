@@ -15,6 +15,7 @@ class ApiClient {
       validateStatus: (status) => switch (status) {
         200 => true,
         201 => true,
+        304 => true,
         _ => false,
       },
     ),

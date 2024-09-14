@@ -7,22 +7,14 @@ import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quran/src/config/config.dart';
 import 'package:quran/src/injection/main_modules_providers.dart';
-import 'package:talker_flutter/talker_flutter.dart';
-import 'package:talker_riverpod_logger/talker_riverpod_logger_observer.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  final talker = Talker();
 
   final container = ProviderContainer(
-    observers: [
-      TalkerRiverpodObserver(
-        talker: talker,
-      ),
-    ],
   );
 
   await _startupSetup(container);
@@ -92,9 +84,10 @@ Future<void> _setAppOrientations() async {
 
 // اضافه کردن این تابع جدید
 Future<void> _setStatusBarTransparent() async {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark, // برای آیکون‌های تیره
-    // statusBarIconBrightness: Brightness.light, // برای آیکون‌های روشن
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark, // برای آیکون‌های تیره
+    ),
+  );
 }

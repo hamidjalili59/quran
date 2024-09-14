@@ -4,6 +4,11 @@ import 'package:quran/src/feature/surah/domain/models/surah_model.dart';
 
 abstract class HomeRepository {
   //
-  Future<Either<ServerFailure, List<Surah>>> getHomeSurahFromServer();
+  Future<Either<ServerFailure, void>> fetchHomeSurahFromServer();
+  //
+  Future<Either<ServerFailure, List<Surah>>> loadSurahFromLocal(
+    int page,
+    int pageLength,
+  );
   //
 }
