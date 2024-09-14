@@ -1,9 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="quran"
+        android:label="Heaven Way"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+    android:name="io.flutter.embedding.android.EnableImpeller"
+    android:value="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

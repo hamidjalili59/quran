@@ -39,6 +39,7 @@ Future<void> _startupSetup(ProviderContainer providerContainer) async {
   WidgetsFlutterBinding.ensureInitialized();
   _errorWidgetBuilder();
   await _setAppOrientations();
+  await _setStatusBarTransparent(); // اضافه کردن این خط
   providerContainer.read(appHelperProvider).setSystemUIOverlayStyle();
 }
 
@@ -87,4 +88,13 @@ Future<void> _setAppOrientations() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
+}
+
+// اضافه کردن این تابع جدید
+Future<void> _setStatusBarTransparent() async {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark, // برای آیکون‌های تیره
+    // statusBarIconBrightness: Brightness.light, // برای آیکون‌های روشن
+  ));
 }
