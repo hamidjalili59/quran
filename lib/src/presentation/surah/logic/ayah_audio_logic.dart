@@ -1,6 +1,7 @@
 import 'package:just_audio/just_audio.dart';
 import 'package:quran/src/feature/surah/domain/models/surah_model.dart';
 import 'package:quran/src/injection/main_modules_providers.dart';
+import 'package:quran/src/injection/modules/ayah_feature_modules.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'ayah_audio_logic.g.dart';
@@ -25,6 +26,13 @@ class AudioService extends _$AudioService {
     );
     final player = ref.read(audioPlayerProvider);
 
+    final result = await ref.read(ayahRepositoryProvider).voiceExists(
+          ayahNumber: ayahNumber,
+          surah: surah,
+          qari: 'qari',
+          audioLink: link,
+        );
+
     player.playerStateStream.listen((event) {
       if (event.processingState == ProcessingState.completed) {
         if (ayahNumber < (surah.numberOfAyahs ?? 1) - 1) {
@@ -48,7 +56,20 @@ class AudioService extends _$AudioService {
     });
 
     try {
-      await player.setUrl(link);
+      await result.fold(
+        (l) async {
+          ref.read(ayahRepositoryProvider).getVoice(
+                ayahNumber: ayahNumber,
+                surah: surah,
+                qari: 'qari',
+                audioLink: link,
+              );
+          await player.setUrl(link);
+        },
+        (r) async {
+          await player.setFilePath(r);
+        },
+      );
       state =
           AsyncData(state.value!.copyWith(state: AudioServiceState.playing));
       await player.play();

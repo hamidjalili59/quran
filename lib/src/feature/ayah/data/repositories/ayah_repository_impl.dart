@@ -12,8 +12,6 @@ class AyahRepositoryImpl extends AyahRepository {
   final AyahRemoteDataSource _remoteDS;
   final String tokenFieldKey = 'token';
 
-
-
   @override
   Future<Either<AyahFailure, File>> getVoice({
     required int ayahNumber,
@@ -22,28 +20,43 @@ class AyahRepositoryImpl extends AyahRepository {
     required String audioLink,
   }) async {
     final dir = await path.getApplicationDocumentsDirectory();
-    if (File('${dir.path}${surah.number}-$ayahNumber-$qari.mp3').existsSync()) {
-      final file = File('${dir.path}${surah.number}-$ayahNumber-$qari.mp3');
-      return right<AyahFailure, File>(file);
-    } else {
-      return await _remoteDS
-          .getDataFromServer(
-            audioLink: audioLink,
-            path: '${dir.path}${surah.number}-$ayahNumber-$qari.mp3',
-          )
-          .then(
-            (value) => value.fold(
-              (l) {
-                return left<AyahFailure, File>(AyahFailure.api(l));
-              },
-              (r) async {
-                final file = File(
-                  '${dir.path}${surah.number}-$ayahNumber-$qari.mp3',
-                );
-                return right<AyahFailure, File>(file);
-              },
-            ),
-          );
+    return await _remoteDS
+        .getDataFromServer(
+          audioLink: audioLink,
+          path: '${dir.path}${surah.number}-$ayahNumber-$qari.mp3',
+        )
+        .then(
+          (value) => value.fold(
+            (l) {
+              return left<AyahFailure, File>(AyahFailure.api(l));
+            },
+            (r) async {
+              final file = File(
+                '${dir.path}${surah.number}-$ayahNumber-$qari.mp3',
+              );
+              return right<AyahFailure, File>(file);
+            },
+          ),
+        );
+  }
+
+  @override
+  Future<Either<AyahFailure, String>> voiceExists({
+    required int ayahNumber,
+    required Surah surah,
+    required String qari,
+    required String audioLink,
+  }) async {
+    try {
+      final dir = await path.getApplicationDocumentsDirectory();
+      final voiceName = '${dir.path}${surah.number}-$ayahNumber-$qari.mp3';
+      if (await File(voiceName).exists()) {
+        return right<AyahFailure, String>(voiceName);
+      } else {
+        return left<AyahFailure, String>(const AyahFailure.nullParam());
+      }
+    } catch (e) {
+      return left<AyahFailure, String>(const AyahFailure.nullParam());
     }
   }
 }

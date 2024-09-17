@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quran/src/core/constants/general_constants.dart';
 import 'package:quran/src/core/network/retry_interceptor.dart';
-import 'package:quran/src/core/network/token_interceptor.dart';
 
 class ApiClient {
   ApiClient(this.ref);
@@ -22,7 +21,7 @@ class ApiClient {
   );
 
   Dio initDio() {
-    _dio.interceptors.add(TokenInterceptor(_dio));
+    // _dio.interceptors.add(TokenInterceptor(_dio));
     _dio.interceptors.add(
       RetryInterceptor(
         _dio,

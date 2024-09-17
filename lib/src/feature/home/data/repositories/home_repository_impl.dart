@@ -23,7 +23,8 @@ class HomeRepositoryImpl extends HomeRepository {
                 final List<dynamic> surahList =
                     baseResponse.data as List<dynamic>;
                 _surahList.addAll(
-                    await compute(fromJsonList, surahList) as List<Surah>,);
+                  await compute(fromJsonList, surahList) as List<Surah>,
+                );
 
                 return right<ServerFailure, void>(null);
               } else {
@@ -39,38 +40,48 @@ class HomeRepositoryImpl extends HomeRepository {
     int page,
     int pageLength,
   ) async {
-    final paginationRange = PaginationRange.fromPageAndPageLength(page, pageLength, _surahList.length,);
-    final resultSubList =
-        await compute(_surahList.isolateSubListing, [paginationRange.from, paginationRange.to],)
-            as List<Surah>;
+    final paginationRange = PaginationRange.fromPageAndPageLength(
+      page,
+      pageLength,
+      _surahList.length,
+    );
+    final resultSubList = await compute(
+      _surahList.isolateSubListing,
+      [paginationRange.from, paginationRange.to],
+    ) as List<Surah>;
 
     return right<ServerFailure, List<Surah>>(resultSubList);
   }
 }
 
-
 extension CustomIsolateLists on List {
-  List<dynamic> isolateSubListing(List<int> args) => sublist(args[0],  args[1]);
+  List<dynamic> isolateSubListing(List<int> args) => sublist(args[0], args[1]);
 }
 
 List<dynamic> fromJsonList(List<dynamic> data) {
   return data.map((e) => Surah.fromJson(e as Map<String, dynamic>)).toList();
 }
 
-class PaginationRange{
+class PaginationRange {
   final int from;
   final int to;
 
   PaginationRange({required this.from, required this.to});
 
-  factory PaginationRange.fromPageAndPageLength(int page,int pageLength,int surahLength) {
+  factory PaginationRange.fromPageAndPageLength(
+    int page,
+    int pageLength,
+    int surahLength,
+  ) {
     final pageMultiply = page * pageLength;
-    if(pageMultiply < surahLength){
-      return PaginationRange(from: (page -1) * pageLength,to: pageMultiply);
-    }else{
-      final diffrent = surahLength-((page -1) * pageLength);
-      return PaginationRange(from: (page -1) * pageLength,to: ((page -1) * pageLength)+diffrent);
+    if (pageMultiply < surahLength) {
+      return PaginationRange(from: (page - 1) * pageLength, to: pageMultiply);
+    } else {
+      final diffrent = surahLength - ((page - 1) * pageLength);
+      return PaginationRange(
+        from: (page - 1) * pageLength,
+        to: ((page - 1) * pageLength) + diffrent,
+      );
     }
-
   }
 }

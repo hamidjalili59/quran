@@ -6,7 +6,7 @@ part of 'ayah_audio_logic.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$audioServiceHash() => r'ca3272ded008e036ad96778b03767110015749aa';
+String _$audioServiceHash() => r'14cd06aca7a6eff5456d9ed19f136a762bd7d3e1';
 
 /// See also [AudioService].
 @ProviderFor(AudioService)

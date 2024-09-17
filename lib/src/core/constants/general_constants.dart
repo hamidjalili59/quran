@@ -10,3 +10,4 @@ const String kArFont = 'AlQalamNew';
 const String baseUrl = 'https://api.alquran.cloud/v1/';
 const String kAppVersion = '0.0.1';
 const String kLoremIpsum = 'لورم ایپسوم ، متن ساختگی است';
+const String kDatabaseName = 'heavenway.db';
