@@ -155,7 +155,7 @@ class SurahPageViewWidget extends ConsumerWidget {
                           surah.ayahs?[ref.watch(currentAyahNumberProvider)]
                                   .text ??
                               '',
-                          textAlign: TextAlign.justify,
+                          textAlign: TextAlign.start,
                           textDirection: TextDirection.rtl,
                           style: const TextStyle(
                             color: Colors.white,
