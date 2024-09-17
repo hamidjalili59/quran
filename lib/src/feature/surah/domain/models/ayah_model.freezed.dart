@@ -23,10 +23,8 @@ mixin _$Ayah {
   int? get number => throw _privateConstructorUsedError;
   String? get text => throw _privateConstructorUsedError;
   int? get numberInAyah => throw _privateConstructorUsedError;
-  int? get juz => throw _privateConstructorUsedError;
-  int? get manzil => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
-  bool? get sajda => throw _privateConstructorUsedError;
+  int? get juz => throw _privateConstructorUsedError; // int? manzil,
+  int? get page => throw _privateConstructorUsedError; // bool? sajda,
   String? get audio => throw _privateConstructorUsedError;
 
   /// Serializes this Ayah to a JSON map.
@@ -48,9 +46,7 @@ abstract class $AyahCopyWith<$Res> {
       String? text,
       int? numberInAyah,
       int? juz,
-      int? manzil,
       int? page,
-      bool? sajda,
       String? audio});
 }
 
@@ -73,9 +69,7 @@ class _$AyahCopyWithImpl<$Res, $Val extends Ayah>
     Object? text = freezed,
     Object? numberInAyah = freezed,
     Object? juz = freezed,
-    Object? manzil = freezed,
     Object? page = freezed,
-    Object? sajda = freezed,
     Object? audio = freezed,
   }) {
     return _then(_value.copyWith(
@@ -95,18 +89,10 @@ class _$AyahCopyWithImpl<$Res, $Val extends Ayah>
           ? _value.juz
           : juz // ignore: cast_nullable_to_non_nullable
               as int?,
-      manzil: freezed == manzil
-          ? _value.manzil
-          : manzil // ignore: cast_nullable_to_non_nullable
-              as int?,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
-      sajda: freezed == sajda
-          ? _value.sajda
-          : sajda // ignore: cast_nullable_to_non_nullable
-              as bool?,
       audio: freezed == audio
           ? _value.audio
           : audio // ignore: cast_nullable_to_non_nullable
@@ -127,9 +113,7 @@ abstract class _$$AyahImplCopyWith<$Res> implements $AyahCopyWith<$Res> {
       String? text,
       int? numberInAyah,
       int? juz,
-      int? manzil,
       int? page,
-      bool? sajda,
       String? audio});
 }
 
@@ -149,9 +133,7 @@ class __$$AyahImplCopyWithImpl<$Res>
     Object? text = freezed,
     Object? numberInAyah = freezed,
     Object? juz = freezed,
-    Object? manzil = freezed,
     Object? page = freezed,
-    Object? sajda = freezed,
     Object? audio = freezed,
   }) {
     return _then(_$AyahImpl(
@@ -171,18 +153,10 @@ class __$$AyahImplCopyWithImpl<$Res>
           ? _value.juz
           : juz // ignore: cast_nullable_to_non_nullable
               as int?,
-      manzil: freezed == manzil
-          ? _value.manzil
-          : manzil // ignore: cast_nullable_to_non_nullable
-              as int?,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int?,
-      sajda: freezed == sajda
-          ? _value.sajda
-          : sajda // ignore: cast_nullable_to_non_nullable
-              as bool?,
       audio: freezed == audio
           ? _value.audio
           : audio // ignore: cast_nullable_to_non_nullable
@@ -199,9 +173,7 @@ class _$AyahImpl implements _Ayah {
       this.text,
       this.numberInAyah,
       this.juz,
-      this.manzil,
       this.page,
-      this.sajda,
       this.audio});
 
   factory _$AyahImpl.fromJson(Map<String, dynamic> json) =>
@@ -215,18 +187,16 @@ class _$AyahImpl implements _Ayah {
   final int? numberInAyah;
   @override
   final int? juz;
-  @override
-  final int? manzil;
+// int? manzil,
   @override
   final int? page;
-  @override
-  final bool? sajda;
+// bool? sajda,
   @override
   final String? audio;
 
   @override
   String toString() {
-    return 'Ayah(number: $number, text: $text, numberInAyah: $numberInAyah, juz: $juz, manzil: $manzil, page: $page, sajda: $sajda, audio: $audio)';
+    return 'Ayah(number: $number, text: $text, numberInAyah: $numberInAyah, juz: $juz, page: $page, audio: $audio)';
   }
 
   @override
@@ -239,16 +209,14 @@ class _$AyahImpl implements _Ayah {
             (identical(other.numberInAyah, numberInAyah) ||
                 other.numberInAyah == numberInAyah) &&
             (identical(other.juz, juz) || other.juz == juz) &&
-            (identical(other.manzil, manzil) || other.manzil == manzil) &&
             (identical(other.page, page) || other.page == page) &&
-            (identical(other.sajda, sajda) || other.sajda == sajda) &&
             (identical(other.audio, audio) || other.audio == audio));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, number, text, numberInAyah, juz, manzil, page, sajda, audio);
+  int get hashCode =>
+      Object.hash(runtimeType, number, text, numberInAyah, juz, page, audio);
 
   /// Create a copy of Ayah
   /// with the given fields replaced by the non-null parameter values.
@@ -272,9 +240,7 @@ abstract class _Ayah implements Ayah {
       final String? text,
       final int? numberInAyah,
       final int? juz,
-      final int? manzil,
       final int? page,
-      final bool? sajda,
       final String? audio}) = _$AyahImpl;
 
   factory _Ayah.fromJson(Map<String, dynamic> json) = _$AyahImpl.fromJson;
@@ -286,13 +252,9 @@ abstract class _Ayah implements Ayah {
   @override
   int? get numberInAyah;
   @override
-  int? get juz;
+  int? get juz; // int? manzil,
   @override
-  int? get manzil;
-  @override
-  int? get page;
-  @override
-  bool? get sajda;
+  int? get page; // bool? sajda,
   @override
   String? get audio;
 

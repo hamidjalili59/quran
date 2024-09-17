@@ -19,9 +19,9 @@ class Ayah with _$Ayah {
     String? text,
     int? numberInAyah,
     int? juz,
-    int? manzil,
+    // int? manzil,
     int? page,
-    bool? sajda,
+    // bool? sajda,
     String? audio,
   }) = _Ayah;
 
