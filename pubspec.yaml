@@ -36,6 +36,8 @@ dev_dependencies:
   lint: ^2.3.0
   riverpod_generator: ^2.4.3
   riverpod_lint: ^2.3.13
+dependency_overrides:
+  just_audio_web: ^0.4.12
 
 flutter_gen:
   output: lib/src/config/gen/

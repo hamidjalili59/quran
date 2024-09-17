@@ -547,7 +547,7 @@ packages:
     source: hosted
     version: "4.3.0"
   just_audio_web:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: just_audio_web
       sha256: b163878529d9b028c53a6972fcd58cae2405bcd11cbfcea620b6fb9f151429d6
