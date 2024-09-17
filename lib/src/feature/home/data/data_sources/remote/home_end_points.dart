@@ -1,3 +1,5 @@
+import 'package:quran/src/core/constants/general_constants.dart';
+
 class HomeEndpoints {
-  static const surahList = 'http://api.alquran.cloud/v1/surah';
+  static const surahList = '${baseUrl}surah';
 }

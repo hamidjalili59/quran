@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:quran/src/core/constants/general_constants.dart';
 import 'package:quran/src/feature/shared/failures/server_failure.dart';
 import 'package:quran/src/injection/main_modules_providers.dart';
 
@@ -18,7 +19,7 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   Future<Either<ServerFailure, Response<Map<String, dynamic>>>>
       getDataFromServer({required int surahNumber}) async {
     final result = await ref.read(dioProvider).get<Map<String, dynamic>>(
-          'https://api.alquran.cloud/v1/surah/$surahNumber/ar.abdulbasitmurattal',
+          '${baseUrl}surah/$surahNumber/ar.abdulbasitmurattal',
         );
     if (result.statusCode == 200) {
       return right(result);
@@ -31,7 +32,7 @@ class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
   Future<Either<ServerFailure, Response<Map<String, dynamic>>>>
       getTranslateDataFromServer({required int surahNumber}) async {
     final result = await ref.read(dioProvider).get<Map<String, dynamic>>(
-          'https://api.alquran.cloud/v1/surah/$surahNumber/fa.ayati',
+          '${baseUrl}surah/$surahNumber/fa.ayati',
         );
     if (result.statusCode == 200) {
       return right(result);
