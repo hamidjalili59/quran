@@ -7,6 +7,7 @@ import 'package:quran/src/config/config.dart';
 import 'package:quran/src/config/gen/assets.gen.dart';
 import 'package:quran/src/config/themes/app_themes.dart';
 import 'package:quran/src/core/core.dart';
+import 'package:quran/src/core/utils/scroll_behavior.dart';
 import 'package:quran/src/feature/surah/domain/models/surah_model.dart';
 import 'package:quran/src/presentation/home/logics/home_surah_list_logic.dart';
 import 'package:quran/src/presentation/shared/components/loading_component.dart';
@@ -72,109 +73,112 @@ class _HomePageState extends ConsumerState<HomePage> {
         }
       },
     );
-    return PageDecorator(
-      hasPadding: false,
-      hasSingleChildScrollView: false,
-      body: Stack(
-        children: [
-          const Positioned.fill(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: kBackgroundGradient,
+    return ScrollConfiguration(
+      behavior: AppScrollBehavior(),
+      child: PageDecorator(
+        hasPadding: false,
+        hasSingleChildScrollView: false,
+        body: Stack(
+          children: [
+            const Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: kBackgroundGradient,
+                ),
               ),
             ),
-          ),
-          Positioned.fill(
-            child: CustomScrollView(
-              controller: _scrollController,
-              slivers: <Widget>[
-                const SliverAppBar.medium(
-                  automaticallyImplyLeading: false,
-                  expandedHeight: 74,
-                  pinned: false,
-                  backgroundColor: Colors.transparent,
-                  flexibleSpace: FlexibleSpaceBar(
-                    background: AppbarWidget(),
-                  ),
-                ),
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: _SliverAppBarDelegate(
-                    maxHeight: 188,
-                    minHeight: 188,
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 24, right: 24, bottom: 24),
-                      child: HomePlayerWidget(),
+            Positioned.fill(
+              child: CustomScrollView(
+                controller: _scrollController,
+                slivers: <Widget>[
+                  const SliverAppBar.medium(
+                    automaticallyImplyLeading: false,
+                    expandedHeight: 74,
+                    pinned: false,
+                    backgroundColor: Colors.transparent,
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: AppbarWidget(),
                     ),
                   ),
-                ),
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: _SliverAppBarDelegate(
-                    maxHeight: 64,
-                    minHeight: 64,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: SizedBox(
-                        width: context.deviceWidthFactor(1),
-                        child: Column(
-                          children: [
-                            Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                  color: kOnBackgroundColor,
-                                ),
-                                width: context.deviceWidthFactor(1),
-                                child: Row(
-                                  children: List.generate(
-                                    3,
-                                    (index) => HomeTagbarItemWidget(
-                                      selected: tags[index].type ==
-                                          ref.watch(homeSurahTagFilterProvider),
-                                      title: tags[index],
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: _SliverAppBarDelegate(
+                      maxHeight: 188,
+                      minHeight: 188,
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 24, right: 24, bottom: 24),
+                        child: HomePlayerWidget(),
+                      ),
+                    ),
+                  ),
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: _SliverAppBarDelegate(
+                      maxHeight: 64,
+                      minHeight: 64,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: SizedBox(
+                          width: context.deviceWidthFactor(1),
+                          child: Column(
+                            children: [
+                              Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                    color: kOnBackgroundColor,
+                                  ),
+                                  width: context.deviceWidthFactor(1),
+                                  child: Row(
+                                    children: List.generate(
+                                      3,
+                                      (index) => HomeTagbarItemWidget(
+                                        selected: tags[index].type ==
+                                            ref.watch(homeSurahTagFilterProvider),
+                                        title: tags[index],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                SliverPadding(
-                  padding: EdgeInsets.zero,
-                  sliver: ref.watch(homeSurahListProvider).when(
-                        loading: () => const SliverToBoxAdapter(
-                          child: Center(child: LoadingComponent()),
-                        ),
-                        error: (error, stack) => SliverToBoxAdapter(
-                          child: Center(child: Text('خطا در بارگذاری: $error')),
-                        ),
-                        data: (surahsState) => SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (context, index) {
-                              if (index >= surahsState.surahs.length) {
-                                return surahsState.hasMore
-                                    ? const Center(child: LoadingComponent())
-                                    : const SizedBox.shrink();
-                              }
-                              return SurahTileWidget(
-                                index: index,
-                                surah: surahsState.surahs[index],
-                              );
-                            },
-                            childCount: surahsState.surahs.length + 1,
+                  SliverPadding(
+                    padding: EdgeInsets.zero,
+                    sliver: ref.watch(homeSurahListProvider).when(
+                          loading: () => const SliverToBoxAdapter(
+                            child: Center(child: LoadingComponent()),
+                          ),
+                          error: (error, stack) => SliverToBoxAdapter(
+                            child: Center(child: Text('خطا در بارگذاری: $error')),
+                          ),
+                          data: (surahsState) => SliverList(
+                            delegate: SliverChildBuilderDelegate(
+                              (context, index) {
+                                if (index >= surahsState.surahs.length) {
+                                  return surahsState.hasMore
+                                      ? const Center(child: LoadingComponent())
+                                      : const SizedBox.shrink();
+                                }
+                                return SurahTileWidget(
+                                  index: index,
+                                  surah: surahsState.surahs[index],
+                                );
+                              },
+                              childCount: surahsState.surahs.length + 1,
+                            ),
                           ),
                         ),
-                      ),
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
